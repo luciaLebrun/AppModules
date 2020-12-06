@@ -69,11 +69,16 @@ composer database
 Le script va exécuter les commandes suivantes:
 
 ```
-"php bin/console doctrine:database:drop --if-exists -f",
-"php bin/console doctrine:database:create",
-"php bin/console doctrine:schema:update --force",
-"php bin/console doctrine:fixtures:load -n"
+php bin/console doctrine:database:drop --if-exists -f
+php bin/console doctrine:database:create
+php bin/console doctrine:schema:update --force
 ```
+
+- Si vous souhaitez ajouter des données de test à la base de données :
+
+``
+php bin/console doctrine:fixtures:load -n
+``
 
 - Lancer le site
 
