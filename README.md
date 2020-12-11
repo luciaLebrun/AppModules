@@ -42,8 +42,7 @@ Pour vérifier son installation :
 - Cloner le projet git
 
 ```
-git clone https://forge.iut-larochelle.fr/llebrun/2020-2021-info2-pts-konji_kondo.git
-cd 2020-2021-info2-pts-konji_kondo
+git clone https://github.com/luciaLebrun/AppModules.git
 ```
 
 - Mettre à jour composer
