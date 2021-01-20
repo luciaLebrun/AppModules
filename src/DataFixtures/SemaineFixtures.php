@@ -431,18 +431,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(04 );
-        $semaine->setCM(0);
-        $semaine->setTD(0);
-        $semaine->setTP(2);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(04 );
+        $semaine->setSemaine(04);
         $semaine->setCM(0);
         $semaine->setTD(0);
         $semaine->setTP(0);
