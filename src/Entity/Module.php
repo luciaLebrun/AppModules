@@ -7,6 +7,7 @@ use App\Repository\ModuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
@@ -24,6 +25,7 @@ class Module
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @Groups({"responsable"})
      */
     private ?string $PPN = null;
 
@@ -36,6 +38,7 @@ class Module
     /**
      * @var Enseignant|null
      * @ORM\ManyToOne(targetEntity="Enseignant", inversedBy="modules",cascade={"persist"})
+     * @Groups({"responsable"})
      */
     private ?Enseignant $responsable = null;
 

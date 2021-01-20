@@ -1,20 +1,20 @@
 <?php
 
 
-namespace App\Request\ParamConverter\Enseignant;
+namespace App\Request\ParamConverter\Responsable;
 
-
-use App\Entity\Enseignant;
+use App\Entity\Module;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * Class ResponsableConverter
- * @package App\Request\ParamConverter
+ * Class PutConverter
+ * @package App\Request\ParamConverter\Enseignant
  */
-class EnseignantConverter implements ParamConverterInterface
+class PutConverter implements ParamConverterInterface
 {
     /**
      * @var SerializerInterface
@@ -22,7 +22,7 @@ class EnseignantConverter implements ParamConverterInterface
     private SerializerInterface $serializer;
 
     /**
-     * ResponsableConverter constructor.
+     * PostConverter constructor.
      * @param SerializerInterface $serializer
      */
     public function __construct(SerializerInterface $serializer)
@@ -37,13 +37,20 @@ class EnseignantConverter implements ParamConverterInterface
      */
     public function apply(Request $request, ParamConverter $configuration)
     {
-        if (!$request->isMethod(Request::METHOD_POST)) {
+        if (!$request->isMethod(Request::METHOD_PUT)) {
             return;
         }
 
-        $enseignant = $this->serializer->deserialize($request->getContent(), Enseignant::class,'json');
+        $object = $request->attributes->get($configuration->getName());
 
-        $request->attributes->set($configuration->getName(), $enseignant);
+        $this->serializer->deserialize(
+            $request->getContent(),
+            $configuration->getClass(),
+            'json',
+            [AbstractNormalizer::OBJECT_TO_POPULATE => $object]
+        );
+
+        $request->attributes->set($configuration->getName(), $object);
     }
 
     /**
@@ -52,6 +59,6 @@ class EnseignantConverter implements ParamConverterInterface
      */
     public function supports(ParamConverter $configuration): bool
     {
-        return $configuration->getName() === "enseignant";
+        return $configuration->getClass() === Module::class;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Request\ParamConverter\Enseignant;
+namespace App\Request\ParamConverter\Responsable;
 
 
-use App\Entity\Enseignant;
+use App\Entity\Module;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  * Class ResponsableConverter
  * @package App\Request\ParamConverter
  */
-class EnseignantConverter implements ParamConverterInterface
+class ResponsableConverter implements ParamConverterInterface
 {
     /**
      * @var SerializerInterface
@@ -41,7 +41,7 @@ class EnseignantConverter implements ParamConverterInterface
             return;
         }
 
-        $enseignant = $this->serializer->deserialize($request->getContent(), Enseignant::class,'json');
+        $enseignant = $this->serializer->deserialize($request->getContent(), Module::class,'json');
 
         $request->attributes->set($configuration->getName(), $enseignant);
     }
@@ -52,6 +52,6 @@ class EnseignantConverter implements ParamConverterInterface
      */
     public function supports(ParamConverter $configuration): bool
     {
-        return $configuration->getName() === "enseignant";
+        return $configuration->getName() === "responsable";
     }
 }
