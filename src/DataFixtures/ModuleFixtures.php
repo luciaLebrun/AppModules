@@ -19,12 +19,14 @@ class ModuleFixtures extends Fixture implements DependentFixtureInterface
         $module->setIntitule('SI1 Introduction aux systèmes informatiques');
         $module->setResponsable($this->getReference('PCo'));
         $manager->persist($module);
+        $this->addReference("M1101", $module);
 
         $module= new Module();
         $module->setPPN('M1102');
         $module->setIntitule('AP1.1 Introduction à l algorithmique et à la programmation');
         $module->setResponsable($this->getReference('RC'));
         $manager->persist($module);
+        $this->addReference("M1102", $module);
 
         $module= new Module();
         $module->setPPN('M1103');
