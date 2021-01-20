@@ -1023,6 +1023,181 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCommentaires(' (cf. CDIN1)');
         $manager->persist($semaine);
 
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(05);
+        $semaine->setCM(0);
+        $semaine->setTD(0); $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(06);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(07);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(8);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(11);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(12);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(13);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(14);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(15);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(16);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(19);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(20);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(21);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(22);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires(' salles D303 et D304 (TP en TD...)');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(23);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M2101'));
+        $semaine->setSemaine(24);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
         $manager->flush();
     }
 
