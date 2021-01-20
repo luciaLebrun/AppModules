@@ -1389,7 +1389,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCM(1); 
         $semaine->setTD(2); 
         $semaine->setTP(0); 
-        $semaine->setSurveillances( );
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0); 
         $semaine->setCommentaires('  # TP dÃ©calÃ©s...');
         $manager->persist($semaine);
@@ -1399,8 +1399,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(37); 
         $semaine->setCM(1); 
         $semaine->setTD(2); 
-        $semaine->setTP(1); 
-        $semaine->setSurveillances(5); 
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0); 
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -1410,8 +1410,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(38); 
         $semaine->setCM(1);
         $semaine->setTD(2); 
-        $semaine->setTP(1); 
-        $semaine->setSurveillances(5); 
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0); 
         $semaine->setCommentaires(''); 
         $manager->persist($semaine);
@@ -1421,8 +1421,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(39);
         $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1); 
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -1596,8 +1596,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(50);
         $semaine->setCM(1);
         $semaine->setTD(2); 
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0); 
         $semaine->setCommentaires(''); 
         $manager->persist($semaine);
@@ -1607,8 +1607,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(51);
         $semaine->setCM(1); 
         $semaine->setTD(2); 
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -1618,8 +1618,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(02);
         $semaine->setCM(1); 
         $semaine->setTD(2);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0); 
         $semaine->setCommentaires(''); 
         $manager->persist($semaine);
@@ -1629,8 +1629,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(03);
         $semaine->setCM(1); 
         $semaine->setTD(2); 
-        $semaine->setTP(1); 
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -2289,8 +2289,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(11);
         $semaine->setCM(1);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(1);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -2300,8 +2300,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(12);
         $semaine->setCM(1);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -2311,8 +2311,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(13);
         $semaine->setCM(1);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -2322,8 +2322,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(14);
         $semaine->setCM(1);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -2759,7 +2759,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges( );
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -2770,7 +2770,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges( );
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -2781,7 +2781,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges( );
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -3131,8 +3131,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(15);
         $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3142,8 +3142,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(16);
         $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3153,8 +3153,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(19);
         $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3164,8 +3164,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(20);
         $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3175,8 +3175,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(21);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3186,8 +3186,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(22);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3198,7 +3198,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCM(0);
         $semaine->setTD(0);
         $semaine->setTP(0);
-        $semaine->setSurveillances( );
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3209,7 +3209,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCM(0);
         $semaine->setTD(0);
         $semaine->setTP(0);
-        $semaine->setSurveillances( );
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -3351,8 +3351,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(21);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires(' GPI + IHM (UX / Ergo)');
         $manager->persist($semaine);
@@ -3362,8 +3362,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(22);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires(' ');
         $manager->persist($semaine);
@@ -3373,8 +3373,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(23);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires(' ');
         $manager->persist($semaine);
@@ -3384,8 +3384,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setSemaine(24);
         $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(1);
-        $semaine->setSurveillances(5);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires(' ');
         $manager->persist($semaine);
