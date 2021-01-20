@@ -49,7 +49,6 @@ class Module
     /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="Semaine", mappedBy="module")
-     * @Groups({"responsable"})
      */
     private Collection $semaines;
 
