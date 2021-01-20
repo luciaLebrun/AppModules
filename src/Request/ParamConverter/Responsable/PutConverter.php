@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class PutConverter
- * @package App\Request\ParamConverter\Enseignant
+ * @package App\Request\ParamConverter\Responsable
  */
 class PutConverter implements ParamConverterInterface
 {

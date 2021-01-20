@@ -5,12 +5,14 @@ namespace App\Entity;
 
 use App\Repository\ModuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Collection;
+//use phpDocumentor\Reflection\Types\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
+ * @ORM\Table(name="module")
  */
 class Module
 {
@@ -19,6 +21,7 @@ class Module
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"responsable"})
      */
     private ?int $id = null;
 
@@ -32,6 +35,7 @@ class Module
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @Groups({"responsable"})
      */
     private ?string $intitule = null;
 
@@ -45,6 +49,7 @@ class Module
     /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="Semaine", mappedBy="module")
+     * @Groups({"responsable"})
      */
     private Collection $semaines;
 

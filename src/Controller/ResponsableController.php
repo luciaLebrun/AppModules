@@ -67,7 +67,6 @@ class ResponsableController
         UrlGeneratorInterface $urlGenerator,
         ValidatorInterface $validator
     ): JsonResponse {
-        //$Module->addModule($entityManager->getRepository(Module::class)->findOneBy([]));
 
         $errors = $validator->validate($module);
 
@@ -80,7 +79,7 @@ class ResponsableController
         return new JsonResponse(
             $serializer->serialize($module, "json", ["groups" => "responsable"]),
             JsonResponse::HTTP_CREATED,
-            ["Location" => $urlGenerator->generate("api_responsable_item_get", ["id" => $module->getId()])],
+            ["Location" => $urlGenerator->generate("api_responsables_item_get", ["id" => $module->getId()])],
             true
         );
     }
@@ -112,7 +111,7 @@ class ResponsableController
     }
 
     /**
-     * @Route("/{id}", name="api_responsable_item_delete", methods={"DELETE"})
+     * @Route("/{id}", name="api_responsables_item_delete", methods={"DELETE"})
      * @param Module $module
      * @param EntityManagerInterface $entityManager
      * @return JsonResponse

@@ -29,6 +29,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+    #Enseignant
     App\Request\ParamConverter\Enseignant\ItemConverter:
         tags:
             - { name: 'request.param_converter', priority: 1 }
@@ -38,3 +41,16 @@ services:
     App\Request\ParamConverter\Enseignant\EnseignantConverter:
         tags:
             - { name: 'request.param_converter', priority: 255 }
+
+
+
+    #Responsable
+    App\Request\ParamConverter\Responsable\ItemConverter:
+        tags:
+            - { name: 'request.param_converter', priority: 3 }
+    App\Request\ParamConverter\Responsable\PutConverter:
+        tags:
+            - { name: 'request.param_converter', priority: 2 }
+    App\Request\ParamConverter\Responsable\ResponsableConverter:
+        tags:
+            - { name: 'request.param_converter', priority: 254 }

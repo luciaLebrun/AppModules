@@ -41,9 +41,9 @@ class ResponsableConverter implements ParamConverterInterface
             return;
         }
 
-        $enseignant = $this->serializer->deserialize($request->getContent(), Module::class,'json');
+        $module = $this->serializer->deserialize($request->getContent(), Module::class,'json');
 
-        $request->attributes->set($configuration->getName(), $enseignant);
+        $request->attributes->set($configuration->getName(), $module);
     }
 
     /**
@@ -52,6 +52,6 @@ class ResponsableConverter implements ParamConverterInterface
      */
     public function supports(ParamConverter $configuration): bool
     {
-        return $configuration->getName() === "responsable";
+        return $configuration->getName() === "module";
     }
 }

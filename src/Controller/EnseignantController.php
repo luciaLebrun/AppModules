@@ -4,7 +4,6 @@
 namespace App\Controller;
 
 use App\Entity\Enseignant;
-use App\Entity\Module;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
