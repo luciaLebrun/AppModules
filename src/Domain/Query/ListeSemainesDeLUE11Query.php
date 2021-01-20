@@ -4,7 +4,7 @@
 namespace App\Domain\Query;
 
 
-class ListeSemainesDeLUE12Query
+class ListeSemainesDeLUE11Query
 {
 
 }

@@ -3,44 +3,76 @@
 {% block title %}AppModules{% endblock %}
 
 {% block body %}
-    <div>
-        <table>
-            <thead>
-                <th>Semaine</th>
-                {% set module = "" %}
-                {% for semaine in semainesUE11 %}
-                    {% if semaine.module|split(' ')[0] != module %}
-                        <th>{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
-                    {% endif %}
-                    {% set module = semaine.module|split(' ')[0] %}
-                {% endfor %}
-            </thead>
-            <tbody>
-                {% for s in semainedebscol..52 %}
+    <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group show" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="position: absolute;transform: translate3d(0px, 38px, 0px);top: 0px;left: 0px;will-change: transform;" x-placement="bottom-start">
+                        <a class="dropdown-item" href="#">Semestre 2</a>
+                        <a class="dropdown-item" href="#">Semestre 3</a>
+                        <a class="dropdown-item" href="#">Semestre 4</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">License Pro</a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary">Semestre 1</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <table class="table table-hover">
+                <thead>
                     <tr>
-                        <!--Afficher numéro semaine-->
-                        <td>{{ s }}</td>
+                        <th scope="col">Semaine</th>
+                        {% set module = "" %}
+                        {% set nbCol = 0 %}
                         {% for semaine in semainesUE11 %}
-                            <!--Afficher créneaux-->
-                            {% if semaine.semaine == s %}
-                                <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
+                            {% if semaine.module|split(' ')[0] != module %}
+                                <th scope="col">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
+                                {% set nbCol = nbCol + 1 %}
                             {% endif %}
+                            {% set module = semaine.module|split(' ')[0] %}
                         {% endfor %}
                     </tr>
-                {% endfor %}
-                {% for s in 1..semainefinscol %}
-                    <tr>
-                        <!--Afficher numéro semaine-->
-                        <td>{{ s }}</td>
-                        {% for semaine in semainesUE11 %}
-                            <!--Afficher créneaux-->
-                            {% if semaine.semaine == s %}
-                                <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
-                            {% endif %}
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="table-striped">
+                    {% for s in semainedebscol..52 %}
+                        <tr>
+                            <!--Afficher numéro semaine-->
+                            <th scope="row">{{ s }}</th>
+                            {% set nb = 1 %}
+                            {% for semaine in semainesUE11 %}
+                                <!--Afficher créneaux-->
+                                {% if semaine.semaine == s %}
+                                    <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
+                                    {% set nb = nb + 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for i in nb..nbCol %}
+                                <td></td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    {% for s in 1..semainefinscol %}
+                        <tr>
+                            <!--Afficher numéro semaine-->
+                            <td>{{ s }}</td>
+                            {% set nb = 1 %}
+                            {% for semaine in semainesUE11 %}
+                                <!--Afficher créneaux-->
+                                {% if semaine.semaine == s %}
+                                    <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
+                                    {% set nb = nb + 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            {% for i in nb..nbCol %}
+                                <td></td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
