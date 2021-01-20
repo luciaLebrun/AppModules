@@ -4,14 +4,14 @@
 namespace App\Controller;
 
 use App\Entity\Enseignant;
+use App\Entity\Module;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Class EnseignantController
@@ -54,24 +54,30 @@ class EnseignantController
 
     /**
      * @Route(name="api_enseignants_collection_post", methods={"POST"})
-     * @param Request $request
+     * @param Enseignant $enseignant
      * @param SerializerInterface $serializer
      * @param EntityManagerInterface $entityManager
      * @param UrlGeneratorInterface $urlGenerator
+     * @param ValidatorInterface $validator
      * @return JsonResponse
      */
     public function post(
-        Request $request,
+        Enseignant $enseignant,
         SerializerInterface $serializer,
         EntityManagerInterface $entityManager,
-        UrlGeneratorInterface $urlGenerator
+        UrlGeneratorInterface $urlGenerator,
+        ValidatorInterface $validator
     ): JsonResponse {
-        /** @var Enseignant $enseignant */
-        $enseignant = $serializer->deserialize($request->getContent(), Enseignant::class, 'json');
+        //$enseignant->addModule($entityManager->getRepository(Module::class)->findOneBy([]));
+
+        $errors = $validator->validate($enseignant);
+
+        if ($errors->count() > 0) {
+            return new JsonResponse($serializer->serialize($errors, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
+        }
 
         $entityManager->persist($enseignant);
         $entityManager->flush();
-
         return new JsonResponse(
             $serializer->serialize($enseignant, "json", ["groups" => "get"]),
             JsonResponse::HTTP_CREATED,
@@ -81,25 +87,46 @@ class EnseignantController
     }
 
     /**
+     * @Route("/{id}",name="api_enseignants_item_put", methods={"PUT"})
      * @param Enseignant $enseignant
-     * @param Request $request
      * @param SerializerInterface $serializer
+     * @param EntityManagerInterface $entityManager
+     * @param ValidatorInterface $validator
      * @return JsonResponse
      */
-    public function put(Enseignant $enseignant, Request $request, SerializerInterface $serializer): JsonResponse
-    {
-        $serializer->deserialize(
-            $request->getContent(),
-            Enseignant::class,
-            'json',
-            [AbstractNormalizer::OBJECT_TO_POPULATE => $enseignant]
-        );
+    public function put(
+        Enseignant $enseignant,
+        SerializerInterface $serializer,
+        EntityManagerInterface $entityManager,
+        ValidatorInterface $validator
+    ): JsonResponse {
+        $errors = $validator->validate($enseignant);
 
-        return new JsonResponse(
-            $serializer->serialize($enseignant, "json", ["groups" => "get"]),
-            JsonResponse::HTTP_CREATED,
-            [],
-            true
-        );
+        if ($errors->count() > 0) {
+            return new JsonResponse($serializer->serialize($errors, 'json'), JsonResponse::HTTP_BAD_REQUEST, [], true);
+        }
+
+        $entityManager->flush();
+
+        return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
+
     }
+
+    /**
+     * @Route("/{id}", name="api_enseignants_item_delete", methods={"DELETE"})
+     * @param Enseignant $enseignant
+     * @param EntityManagerInterface $entityManager
+     * @return JsonResponse
+     */
+    public function delete(
+        Enseignant $enseignant,
+        EntityManagerInterface $entityManager
+    ): JsonResponse {
+
+        $entityManager->remove($enseignant);
+        $entityManager->flush();
+
+        return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
+    }
+
 }

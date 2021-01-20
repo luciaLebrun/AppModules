@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 use App\Repository\ModuleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Collection;
 
@@ -43,6 +44,14 @@ class Module
      * @ORM\OneToMany(targetEntity="Semaine", mappedBy="module")
      */
     private Collection $semaines;
+
+    /**
+     * Module constructor.
+     */
+    public function __construct()
+    {
+        $this->semaines = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -99,5 +108,27 @@ class Module
     {
         $this->responsable = $responsable;
     }
+
+    /**
+     * @return Collection
+     */
+    public function getSemaines()
+    {
+        return $this->semaines;
+    }
+
+    /**
+     * @param Semaine $semaine
+     */
+    public function addSemaine(Semaine $semaine): void
+    {
+        if(!$this->semaines->contains($semaine))
+        {
+            $semaine->setModule($this);
+            $this->semaines->add($semaine);
+        }
+    }
+
+
 
 }

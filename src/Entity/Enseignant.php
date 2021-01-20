@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -72,6 +73,22 @@ class Enseignant
      */
     private ?string $contact = null;
 
+    /**
+     * @return static
+     */
+    public static function create(): self
+    {
+        $enseignant = new self();
+        return $enseignant;
+    }
+
+    /**
+     * Enseignant constructor.
+     */
+    public function __construct()
+    {
+        $this->modules = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -177,6 +194,17 @@ class Enseignant
         $this->contact = $contact;
     }
 
+    /**
+     * @return Collection
+     */
+    public function getModules() : Collection
+    {
+        return $this->modules;
+    }
+
+    /**
+     * @param Module $module
+     */
     public function addModule(Module $module) : void
     {
         if(!$this->modules->contains($module))

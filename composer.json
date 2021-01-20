@@ -75,8 +75,8 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
-        "database": [
-            "php bin/console doctrine:database:drop --if-exists -f",
+        "prepare": [
+            "php bin/console doctrine:database:drop -f",
             "php bin/console doctrine:database:create",
             "php bin/console doctrine:schema:update --force"
         ],
