@@ -33,24 +33,28 @@ class ModuleFixtures extends Fixture implements DependentFixtureInterface
         $module->setIntitule('AP1.2 Structures de données et algorithmes fondamentaux');
         $module->setResponsable($this->getReference('FAB'));
         $manager->persist($module);
+        $this->addReference("M1103", $module);
 
         $module= new Module();
         $module->setPPN('M1104');
         $module->setIntitule('BD1 Introduction aux bases de données');
         $module->setResponsable($this->getReference('CFa'));
         $manager->persist($module);
+        $this->addReference("M1104", $module);
 
         $module= new Module();
         $module->setPPN('M1105');
         $module->setIntitule('CDIN1 Conception de documents et d interfaces numériques');
         $module->setResponsable($this->getReference('PCo'));
         $manager->persist($module);
+        $this->addReference("M1105", $module);
 
         $module= new Module();
         $module->setPPN('M1106');
         $module->setIntitule('PTS1 Projet tutoré -- Découverte');
         $module->setResponsable($this->getReference('PCo'));
         $manager->persist($module);
+        $this->addReference("M1106", $module);
 
         $module= new Module();
         $module->setPPN('M1201');
