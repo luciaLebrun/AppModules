@@ -2,11 +2,11 @@
 
 {% block title %}AppModules{% endblock %}
 
-{% block stylesheets %}
-{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
     <div class="col-12">
+        <!--Navigation Semestre-->
         <div class="row justify-content-center py-5">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <div class="btn-group show" role="group">
@@ -28,31 +28,40 @@
             </div>
         </div>
 
+        <!--Tab UE-->
         <ul class="nav nav-tabs justify-content-around">
+            {% if numSemestre != 5 %}
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#UE{{ numSemestre }}1"><h4 class="text-secondary m-0">UE {{ numSemestre }}1</h4></a>
             </li>
-            {% if numSemaine != 5 %}
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#UE{{ numSemestre }}2"><h4 class="text-secondary m-0">UE {{ numSemestre }}2</h4></a>
             </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#UE{{ numSemestre }}1"><h4 class="text-secondary m-0">UE {{ numSemestre }}</h4></a>
+                </li>
             {% endif %}
             <li class="nav-item">
                 <a class="nav-link disabled" href="#Recap"><h4 class="text-body m-0">Recap</h4></a>
             </li>
         </ul>
+
+        <!--Contenu Tabs-->
         <div id="myTabContent" class="tab-content">
+
+            <!--Contenu UE1-->
             <div class="tab-pane fade show active" id="UE{{ numSemestre }}1">
-                <div class="row justify-content-center mx-0">
+                {% if semainesUE1 is defined and semainesUE1 is not empty%}
+                    <div class="row justify-content-center mx-0">
                     <table class="table table-striped text-center border-left border-right border-bottom">
                         <thead>
                             <tr>
-                                <th scope="col" rowspan="2"></th>
-                                {% set module = "" %}
-                                {% set nbCol = 0 %}
+                                <th scope="col" rowspan="2" class="border-left border-right border-light"></th>
+                                {% set module = "" %}{% set nbCol = 0 %}
                                 {% for semaine in semainesUE1 %}
                                     {% if semaine.module|split(' ')[0] != module %}
-                                        <th scope="col" colspan="3" class="border-right border-left border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
+                                        <th scope="col" colspan="3" class="border-left border-right border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
                                         {% set nbCol = nbCol + 1 %}
                                     {% endif %}
                                     {% set module = semaine.module|split(' ')[0] %}
@@ -72,7 +81,8 @@
                                     {% set module = semaine.module|split(' ')[0] %}
                                 {% endfor %}
                             </tr>
-                            {% for s in semainedeb..52 %}
+                            {% if numSemestre == 1 or numSemestre == 3 %}
+                                {% for s in semainedeb..52 %}
                                 <tr>
                                     <th scope="row">S{{ s }}</th>
                                     {% set nb = 0 %}
@@ -93,7 +103,7 @@
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
-                            {% for s in 1..semainefin %}
+                                {% for s in 1..semainefin %}
                                 <tr>
                                     <th scope="row">S{{ s }}</th>
                                     {% set nb = 0 %}
@@ -114,19 +124,46 @@
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
+                            {% else %}
+                                {% for s in semainedeb..semainefin %}
+                                <tr>
+                                    <th scope="row">S{{ s }}</th>
+                                    {% set nb = 0 %}
+                                    {% for semaine in semainesUE1 %}
+                                        {% if semaine.semaine == s %}
+                                            <td class="border-left">{{ semaine.CM }}</td>
+                                            <td>{{ semaine.TD }}</td>
+                                            <td class="border-right">{{ semaine.TP }}</td>
+                                            {% set nb = nb + 1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% for i in nb..nbCol-1 %}
+                                        {% if nb != nbCol %}
+                                            <td class="border-left"></td>
+                                            <td></td>
+                                            <td class="border-right"></td>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                    <p class="text-center my-3">Oops! La maquette n'est pas encore prête...</p>
+                {% endif %}
             </div>
-            {% if numSemaine != 5 %}
+
+            <!--Contenu UE2-->
             <div class="tab-pane fade" id="UE{{ numSemestre }}2">
-                <div class="row justify-content-center">
+                {% if semainesUE2 is defined and semainesUE2 is not empty%}
+                    <div class="row justify-content-center">
                     <table class="table table-striped text-center">
                         <thead>
                         <tr>
                             <th scope="col"></th>
-                            {% set module = "" %}
-                            {% set nbCol = 0 %}
+                            {% set module = "" %}{% set nbCol = 0 %}
                             {% for semaine in semainesUE2 %}
                                 {% if semaine.module|split(' ')[0] != module %}
                                     <th scope="col" colspan="3" class="border-right border-left border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
@@ -149,7 +186,29 @@
                                     {% set module = semaine.module|split(' ')[0] %}
                                 {% endfor %}
                             </tr>
-                            {% for s in semainedeb..52 %}
+                            {% if numSemestre == 1 or numSemestre == 3 %}
+                                {% for s in semainedeb..52 %}
+                                    <tr>
+                                        <th scope="row">S{{ s }}</th>
+                                        {% set nb = 0 %}
+                                        {% for semaine in semainesUE2 %}
+                                            {% if semaine.semaine == s %}
+                                                <td class="border-left">{{ semaine.CM }}</td>
+                                                <td>{{ semaine.TD }}</td>
+                                                <td class="border-right">{{ semaine.TP }}</td>
+                                                {% set nb = nb + 1 %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for i in nb..nbCol-1 %}
+                                            {% if nb != nbCol %}
+                                                <td class="border-left"></td>
+                                                <td></td>
+                                                <td class="border-right"></td>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                                {% for s in 1..semainefin %}
                                 <tr>
                                     <th scope="row">S{{ s }}</th>
                                     {% set nb = 0 %}
@@ -170,7 +229,8 @@
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
-                            {% for s in 1..semainefin %}
+                            {% else %}
+                                {% for s in semainedeb..semainefin %}
                                 <tr>
                                     <th scope="row">S{{ s }}</th>
                                     {% set nb = 0 %}
@@ -191,11 +251,16 @@
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                    <p class="text-center my-3">Oops! La maquette n'est pas encore prête...</p>
+                {% endif %}
             </div>
-            {% endif %}
+
+            <!--Contenu Recap-->
             <div class="tab-pane fade" id="Recap">
                 <!--Recap hebdomadaire-->
             </div>
