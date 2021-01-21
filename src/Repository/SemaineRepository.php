@@ -59,7 +59,7 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
     public function toutesLesSemainesDeLUE21(): iterable
     {
         //création de query avec DQL
-        $query=$this->_em->createQuery('SELECT E.trigramme, M.intitule, S.semaine, S.CM, S.TD, S.TP
+        $query=$this->_em->createQuery('SELECT E.trigramme AS responsable, M.intitule as module, S.semaine as semaine, S.CM as CM, S.TD as TD, S.TP as TP
                                         FROM App\Entity\Semaine S, App\Entity\Module M, App\Entity\Enseignant E
                                         WHERE S.module = M.id
                                             AND M.responsable = E.id

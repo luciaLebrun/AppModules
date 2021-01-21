@@ -3,25 +3,24 @@
 {% block title %}AppModules{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
     <div class="col-12">
         <div class="row justify-content-center py-5">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <div class="btn-group show" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="position: absolute;transform: translate3d(0px, 38px, 0px);top: 0px;left: 0px;will-change: transform;" x-placement="bottom-start">
-                        <a class="dropdown-item" href="/">Semestre 2</a>
-                        <a class="dropdown-item" href="/">Semestre 3</a>
-                        <a class="dropdown-item" href="/">Semestre 4</a>
+                        <a class="dropdown-item" href="/semestre/2">Semestre 2</a>
+                        <a class="dropdown-item" href="/semestre/3">Semestre 3</a>
+                        <a class="dropdown-item" href="/semestre/4">Semestre 4</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="">License Pro</a>
+                        <a class="dropdown-item" href="/semestre/5">License Pro</a>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary">Semestre 1</button>
             </div>
         </div>
 
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs justify-content-around">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#UE11">UE 11</a>
             </li>
@@ -29,12 +28,12 @@
                 <a class="nav-link" data-toggle="tab" href="#UE12">UE 12</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#Recapitulatif">Récapitulatif</a>
+                <a class="nav-link disabled" href="#Recap">Récapitulatifs</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade show active" id="UE11">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mx-0">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -55,7 +54,7 @@
                                 <tr>
                                     <!--Afficher numéro semaine-->
                                     <th scope="row">{{ s }}</th>
-                                    {% set nb = 1 %}
+                                    {% set nb = 0 %}
                                     {% for semaine in semainesUE1 %}
                                         <!--Afficher créneaux-->
                                         {% if semaine.semaine == s %}
@@ -63,8 +62,10 @@
                                             {% set nb = nb + 1 %}
                                         {% endif %}
                                     {% endfor %}
-                                    {% for i in nb..nbCol %}
-                                        <td></td>
+                                    {% for i in nb..nbCol-1 %}
+                                        {% if nb != nbCol %}
+                                            <td></td>
+                                        {% endif %}
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
@@ -72,16 +73,18 @@
                                 <tr>
                                     <!--Afficher numéro semaine-->
                                     <td>{{ s }}</td>
-                                    {% set nb = 1 %}
-                                    {% for semaine in semainesUE2 %}
+                                    {% set nb = 0 %}
+                                    {% for semaine in semainesUE1 %}
                                         <!--Afficher créneaux-->
                                         {% if semaine.semaine == s %}
                                             <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
                                             {% set nb = nb + 1 %}
                                         {% endif %}
                                     {% endfor %}
-                                    {% for i in nb..nbCol %}
-                                        <td></td>
+                                    {% for i in nb..nbCol-1 %}
+                                        {% if nb != nbCol %}
+                                            <td></td>
+                                        {% endif %}
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
@@ -111,7 +114,7 @@
                             <tr>
                                 <!--Afficher numéro semaine-->
                                 <th scope="row">{{ s }}</th>
-                                {% set nb = 1 %}
+                                {% set nb = 0 %}
                                 {% for semaine in semainesUE2 %}
                                     <!--Afficher créneaux-->
                                     {% if semaine.semaine == s %}
@@ -119,8 +122,10 @@
                                         {% set nb = nb + 1 %}
                                     {% endif %}
                                 {% endfor %}
-                                {% for i in nb..nbCol %}
-                                    <td></td>
+                                {% for i in nb..nbCol-1 %}
+                                    {% if nb != nbCol %}
+                                        <td></td>
+                                    {% endif %}
                                 {% endfor %}
                             </tr>
                         {% endfor %}
@@ -128,7 +133,7 @@
                             <tr>
                                 <!--Afficher numéro semaine-->
                                 <td>{{ s }}</td>
-                                {% set nb = 1 %}
+                                {% set nb = 0 %}
                                 {% for semaine in semainesUE2 %}
                                     <!--Afficher créneaux-->
                                     {% if semaine.semaine == s %}
@@ -136,8 +141,10 @@
                                         {% set nb = nb + 1 %}
                                     {% endif %}
                                 {% endfor %}
-                                {% for i in nb..nbCol %}
-                                    <td></td>
+                                {% for i in nb..nbCol-1 %}
+                                    {% if nb != nbCol %}
+                                        <td></td>
+                                    {% endif %}
                                 {% endfor %}
                             </tr>
                         {% endfor %}
@@ -145,7 +152,7 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade" id="Recapitulatif">
+            <div class="tab-pane fade" id="Recap">
                 <!--Recap hebdomadaire-->
             </div>
         </div>
