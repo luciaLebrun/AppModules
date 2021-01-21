@@ -43,7 +43,17 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
 
     public function toutesLesSemainesDeLUE12(): iterable
     {
-        // TODO: Implement toutesLesSemainesDeLUE12() method.
+        //création de query avec DQL
+        $query=$this->_em->createQuery('SELECT E.trigramme AS responsable, M.intitule as module, S.semaine as semaine, S.CM as CM, S.TD as TD, S.TP as TP
+                                        FROM App\Entity\Semaine S, App\Entity\Module M, App\Entity\Enseignant E
+                                        WHERE S.module = M.id
+                                            AND M.responsable = E.id
+                                            AND M.PPN LIKE \'M12%\'
+                                        ORDER BY M.intitule');
+        //récupération du résultat à partir de la query
+        $result = $query->getResult();
+        //on retourne le résultat
+        return $result;
     }
 
     public function toutesLesSemainesDeLUE21(): iterable
@@ -63,7 +73,17 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
 
     public function toutesLesSemainesDeLUE22(): iterable
     {
-        // TODO: Implement toutesLesSemainesDeLUE22() method.
+        //création de query avec DQL
+        $query=$this->_em->createQuery('SELECT E.trigramme AS responsable, M.intitule as module, S.semaine as semaine, S.CM as CM, S.TD as TD, S.TP as TP
+                                        FROM App\Entity\Semaine S, App\Entity\Module M, App\Entity\Enseignant E
+                                        WHERE S.module = M.id
+                                            AND M.responsable = E.id
+                                            AND M.PPN LIKE \'M22%\'
+                                        ORDER BY M.intitule');
+        //récupération du résultat à partir de la query
+        $result = $query->getResult();
+        //on retourne le résultat
+        return $result;
     }
 
     public function toutesLesSemainesDeLUE31(): iterable

@@ -3,9 +3,10 @@
 
 namespace App\Domain\Query;
 
+
 use App\Domain\MaquetteEnseignement;
 
-class ListeSemainesDeLUE11Handler
+class ListeSemainesDeLUE12Handler
 {
     private $maquetteEnseignement;
 
@@ -14,8 +15,8 @@ class ListeSemainesDeLUE11Handler
         $this->maquetteEnseignement=$maquetteEnseignement;
     }
 
-    public function handle(ListeSemainesDeLUE11Query $requete):iterable
+    public function handle(ListeSemainesDeLUE12Query $requete):iterable
     {
-        return $this->maquetteEnseignement->toutesLesSemainesDeLUE11();
+        return $this->maquetteEnseignement->toutesLesSemainesDeLUE12();
     }
 }

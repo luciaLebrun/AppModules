@@ -3,6 +3,7 @@
 {% block title %}AppModules{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
     <div class="col-12">
         <div class="row justify-content-center py-5">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -40,7 +41,7 @@
                                 <th scope="col">Semaine</th>
                                 {% set module = "" %}
                                 {% set nbCol = 0 %}
-                                {% for semaine in semainesUE11 %}
+                                {% for semaine in semainesUE1 %}
                                     {% if semaine.module|split(' ')[0] != module %}
                                         <th scope="col">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
                                         {% set nbCol = nbCol + 1 %}
@@ -50,12 +51,12 @@
                             </tr>
                         </thead>
                         <tbody class="table-striped">
-                            {% for s in semainedebscol..52 %}
+                            {% for s in semainedebs1..52 %}
                                 <tr>
                                     <!--Afficher numéro semaine-->
                                     <th scope="row">{{ s }}</th>
                                     {% set nb = 1 %}
-                                    {% for semaine in semainesUE11 %}
+                                    {% for semaine in semainesUE1 %}
                                         <!--Afficher créneaux-->
                                         {% if semaine.semaine == s %}
                                             <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
@@ -67,12 +68,12 @@
                                     {% endfor %}
                                 </tr>
                             {% endfor %}
-                            {% for s in 1..semainefinscol %}
+                            {% for s in 1..semainefins1 %}
                                 <tr>
                                     <!--Afficher numéro semaine-->
                                     <td>{{ s }}</td>
                                     {% set nb = 1 %}
-                                    {% for semaine in semainesUE12 %}
+                                    {% for semaine in semainesUE2 %}
                                         <!--Afficher créneaux-->
                                         {% if semaine.semaine == s %}
                                             <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
@@ -96,7 +97,7 @@
                             <th scope="col">Semaine</th>
                             {% set module = "" %}
                             {% set nbCol = 0 %}
-                            {% for semaine in semainesUE12 %}
+                            {% for semaine in semainesUE2 %}
                                 {% if semaine.module|split(' ')[0] != module %}
                                     <th scope="col">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
                                     {% set nbCol = nbCol + 1 %}
@@ -106,12 +107,12 @@
                         </tr>
                         </thead>
                         <tbody class="table-striped">
-                        {% for s in semainedebscol..52 %}
+                        {% for s in semainedebs1..52 %}
                             <tr>
                                 <!--Afficher numéro semaine-->
                                 <th scope="row">{{ s }}</th>
                                 {% set nb = 1 %}
-                                {% for semaine in semainesUE12 %}
+                                {% for semaine in semainesUE2 %}
                                     <!--Afficher créneaux-->
                                     {% if semaine.semaine == s %}
                                         <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
@@ -123,12 +124,12 @@
                                 {% endfor %}
                             </tr>
                         {% endfor %}
-                        {% for s in 1..semainefinscol %}
+                        {% for s in 1..semainefins1 %}
                             <tr>
                                 <!--Afficher numéro semaine-->
                                 <td>{{ s }}</td>
                                 {% set nb = 1 %}
-                                {% for semaine in semainesUE11 %}
+                                {% for semaine in semainesUE2 %}
                                     <!--Afficher créneaux-->
                                     {% if semaine.semaine == s %}
                                         <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
@@ -145,7 +146,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="Recapitulatif">
-                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+                <!--Recap hebdomadaire-->
             </div>
         </div>
     </div>
