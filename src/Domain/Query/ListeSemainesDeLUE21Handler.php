@@ -15,7 +15,7 @@ class ListeSemainesDeLUE21Handler
         $this->maquetteEnseignement=$maquetteEnseignement;
     }
 
-    public function handle(MaquetteEnseignementQuery $requete):iterable
+    public function handle(ListeSemainesDeLUE21Query $requete):iterable
     {
         return $this->maquetteEnseignement->toutesLesSemainesDeLUE21();
     }
