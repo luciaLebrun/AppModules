@@ -8,7 +8,7 @@
             <thead>
                 <th>Semaine</th>
                 {% set module = "" %}
-                {% for semaine in semainesUE11 %}
+                {% for semaine in semainesUE1 %}
                     {% if semaine.module|split(' ')[0] != module %}
                         <th>{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
                     {% endif %}
@@ -16,11 +16,11 @@
                 {% endfor %}
             </thead>
             <tbody>
-                {% for s in semainedebscol..52 %}
+                {% for s in semainedebs1..52 %}
                     <tr>
                         <!--Afficher numéro semaine-->
                         <td>{{ s }}</td>
-                        {% for semaine in semainesUE11 %}
+                        {% for semaine in semainesUE1 %}
                             <!--Afficher créneaux-->
                             {% if semaine.semaine == s %}
                                 <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
@@ -28,11 +28,11 @@
                         {% endfor %}
                     </tr>
                 {% endfor %}
-                {% for s in 1..semainefinscol %}
+                {% for s in 1..semainefins1 %}
                     <tr>
                         <!--Afficher numéro semaine-->
                         <td>{{ s }}</td>
-                        {% for semaine in semainesUE11 %}
+                        {% for semaine in semainesUE1 %}
                             <!--Afficher créneaux-->
                             {% if semaine.semaine == s %}
                                 <td>CM {{ semaine.CM }} <br/> TD {{ semaine.TD }} <br/> TP {{ semaine.TP }}</td>
