@@ -1,0 +1,102 @@
+trigramme ; Prénom Nom ; service dû ; statut ; contact
+
+ALa ; Annick Lassus ; 384 ; SEC ;
+CMa ; Céline Marteau ; 384 ; SEC ;
+FGo ; Frédérique Gobert ; 384 ; SEC ;
+PCo ; Philippe Coulaud ; 384 ; SEC ;
+PCr ; Philippe Crottereau ; 384 ; SEC ;
+ECa ; Étienne Carnovali ; 384 ; SEC ;
+
+ADo ; Antoine Doucet ; 0 ; SUP ;
+CFa ; Cyril Faucher ; 192 ; SUP ;
+FAB ; Farid Ammar-Boudjelal ; 192 ;
+JMa ; Jamal Malki ; 192 ; SUP ;
+MHB ; Marie-Hélène Baudoux ; 0 ; SUP ;
+MRa ; Mourad Rabah ; 153.6 ; SUP ;
+PGo ; Petra Gomez ; 192 ; SUP ;
+RC ; Ronan Champagnat ; 192 ; SUP ;
+SMa ; Sylvain Marchand ; 192 ; SUP ;
+YGD ; Yacine Ghamri-Doudane ; 192 ;
+
+# contractuels
+
+PJo ; Pauline Jousseaume ; 384 ; SUP ;
+
+# ATER
+
+DMo ; Damien Mondou ; 176 ; ATER ;
+
+# vacataires
+EMi ; Éric Miossec ; 0 ; VAC_SEC ;
+MLa ; Michelle Labady ; 0 ; VAC_SEC ;
+OBe ; Olivier Beinchet ; 0 ; VAC_SEC ;
+PMa ; Philippe Marer ; 0 ; VAC_SEC ;
+PRo ; Philippe Robin ; 0 ; VAC_SEC ;
+PRe ; Patrice Remaud ; 0 ; VAC_SUP ;
+FJa ; Florence Jarnan ; 0 ; VAC_SEC ;
+PaDe ; Patrice Denis ; 0 ; VAC_SEC ;
+AMV ; Anne-Marie Vivier ; 0 ; VAC_SEC ;
+CeLa ; Cédric Lavallée ; 0 ; VAC_SEC ;
+CLar ; Claire Larafa-Nizard ; 0 ; VAC_SEC ;
+
+AHo ; Alexis Houriez ; 0 ; VAC_PRO ;
+AJu ; Alexandre Jubien ; 0 ; VAC_PRO ;
+AZi ; Alan Zirek ; 0 ; VAC_PRO ;
+CBC ; Christelle Bouyer-Chapman ; 0 ; VAC_PRO ;
+CCli ; Corentin Clisson ; 0 ; VAC_PRO ;
+CCT ; Catherine Chourry-Terrasse ; 0 ; VAC_PRO ;
+CNa ; Clément Nadeau ; 0 ; VAC_PRO ;
+DAl ; Denis Allard ; 0 ; VAC_PRO ;
+EmMo ; Émeraude Moinard ; 0 ; VAC_PRO ;
+FBa ; Frédéric Baudoux ; 0 ; VAC_PRO ;
+GCha ; Guillaume Charpentier ; 0 ; VAC_PRO ;
+IMo ; Irmine Morvan-Leboeuf ; 0 ; VAC_PRO ;
+JBot ; Johan Botton ; 0 ; VAC_PRO ;
+JGa ; Joao Garcia ; 0 ; VAC_PRO ;
+JPP ; Jean-Pascal Priou ; 0 ; VAC_PRO ;
+LAn ; Lenn Angel ; 0 ; VAC_PRO ;
+LeP ; Léo Poiroux ; 0 ; VAC_PRO ;
+LiP ; Lise Pommeret ; 0 ; VAC_PRO ;
+NLe ; Noémie Lemaire ; 0 ; VAC_PRO ;
+NPe ; Nicolas Péridont ; 0 ; VAC_PRO ;
+OOe ; Olivier Oeuillot ; 0 ; VAC_PRO ;
+PPi ; Patrice Pichereau ; 0 ; VAC_PRO ;
+SBo ; Stéphanie Borrel ; 0 ; VAC_PRO ;
+ScEs ; Scarlett Estival ; 0 ; VAC_PRO ;
+SFe ; Sylvain Ferlac ; 0 ; VAC_PRO ;
+VPi ; Valentin Pivet ; 0 ; VAC_PRO ;
+FSa ; Flora Savreux ; 0 ; VAC_PRO ;
+FLa ; François Lagouyette ; 0 ; VAC_PRO ;
+MMA ; Martin Masmontet ; 0 ; VAC_PRO ;
+JeRo ; Jérôme Rouaix ; 0 ; VAC_PRO ;
+
+JLG ; Jean-Loup Guillaume ; 0 ; VAC_ULR ;
+#JMo ; Jacques Morcos ; 0 ; VAC_ULR ;
+
+FrCh ; Franck Charneau ; 0 ; BIATSS ;
+MLu ; Muzzamil Luqman ; 0 ; BIATSS ;
+NSi ; Nicolas Sidère ; 0 ; BIATSS ;
+NTa ; Nouredine Tamani ; 0 ; BIATSS ;
+AnBe ; Anis Bey ; 0 ; BIATSS ;
+SaAr ; Sabrine Aroua ; 0 ; BIATSS ;
+ZMi ; Zuheng Ming ; 0 ; BIATSS ;
+NVN ; Nhu-Van Nguyen ; 0 ; BIATSS ;
+CSu ; Cyril Suire ; 0 ; BIATSS ;
+AJC ; Axel Jean-Caurant ; 0 ; BIATSS ;
+EPL ; Elvys Pontes-Linhares ; 0 ; BIATSS ;
+
+KRo ; Kais Rouis ; 0 ; BIATSS ;
+
+DMe ; David Merieau ; 0 ; VAC ;
+
+#NHa ; Nour Haidar ; 0 ; DOCT ;
+
+GBe ; Guillaume Bernard ; 64 ; DOCT ;
+
+MaHa ; Marwa Hamdi ; 0 ; DOCT ;
+
+# à répartir...
+inc ; enseignant inconnu ; 0 ; INC ;
+
+# gratuit...
+rien ; enseignant gratuit ; 0 ; INC ;
