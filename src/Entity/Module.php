@@ -5,8 +5,9 @@ namespace App\Entity;
 
 use App\Repository\ModuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Collection;
+
 
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
@@ -40,7 +41,6 @@ class Module
     private ?Enseignant $responsable = null;
 
     /**
-     * @var Collection
      * @ORM\OneToMany(targetEntity="Semaine", mappedBy="module")
      */
     private Collection $semaines;
@@ -110,9 +110,9 @@ class Module
     }
 
     /**
-     * @return Collection
+     * @return ArrayCollection
      */
-    public function getSemaines()
+    public function getSemaines() : ArrayCollection
     {
         return $this->semaines;
     }
