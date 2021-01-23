@@ -81,6 +81,8 @@ class CSVImportCommand extends Command
 
         $this->entityManager->flush();
 
+        unlink("..\src\Request\CSV\\enseignants.csv");
+
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
     }

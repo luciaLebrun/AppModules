@@ -41,35 +41,30 @@ class Enseignant
     /**
      * @var string|null
      * @ORM\Column(type="string")
-     * @Groups({"get"})
      */
     private ?string $nom = null;
 
     /**
      * @var int|null
      * @ORM\Column(type="integer")
-     * @Groups({"get"})
      */
     private ?int $serviceDu = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
-     * @Groups({"get"})
      */
     private ?string $statut = null;
 
     /**
      * @var Collection
      * @ORM\OneToMany(targetEntity="Module", mappedBy="responsable")
-     * @Groups({"get"})
      */
     private Collection $modules;
 
     /**
      * @var string|null
      * @ORM\Column(type="string", nullable=true)
-     * @Groups({"get"})
      */
     private ?string $contact = null;
 
