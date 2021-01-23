@@ -3,6 +3,7 @@
 
 namespace App\Request\Command;
 
+
 use App\Entity\Enseignant;
 use Doctrine\ORM\EntityManagerInterface;
 use League\Csv\Reader;
@@ -12,11 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Class CSVImportCommand
- * @package App\Request\Command
- */
-class CSVImportCommand extends Command
+class EnseignantImportCommand extends Command
 {
     /** @var EntityManagerInterface  */
     private EntityManagerInterface $entityManager;
@@ -35,7 +32,7 @@ class CSVImportCommand extends Command
     protected function configure()
     {
         $this
-            ->setName("csv:import")
+            ->setName("csv:import:enseignants")
             ->setDescription("Imports a mock CSV file");
 
     }

@@ -48,7 +48,7 @@ class EnseignantController extends AbstractController
             $application = new Application($kernel);
             $application->setAutoExit(false);
 
-            $input = new ArrayInput(array('command' => 'csv:import'));
+            $input = new ArrayInput(array('command' => 'csv:import:enseignants'));
             $output = new BufferedOutput();
             $application->run($input, $output);
 

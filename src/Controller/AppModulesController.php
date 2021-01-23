@@ -16,7 +16,7 @@ class AppModulesController extends AbstractController
      */
     public function index(): RedirectResponse
     {
-        return $this->redirectToRoute('semestre',['page'=>1],301);
+        return $this->redirectToRoute('semestre',['semester'=>1],301);
     }
 
     /**
