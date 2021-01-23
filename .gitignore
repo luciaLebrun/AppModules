@@ -23,3 +23,7 @@ yarn-error.log
 
 /docker-compose.yml
 /php/
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
