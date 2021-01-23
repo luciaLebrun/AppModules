@@ -38,21 +38,4 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
         }
         return $sem;
     }
-
-    public function findEachWeekOfUE2OfASemester($semester): iterable
-    {
-        $UE = "M".$semester."2%";
-        //création de query avec DQL
-        $query=$this->_em->createQuery('SELECT E.trigramme AS responsable, M.intitule as module, S.semaine as semaine, NULLIF(S.CM,0) as CM, NULLIF(S.TD,0) as TD, NULLIF(S.TP,0) as TP
-                                        FROM App\Entity\Semaine S, App\Entity\Module M, App\Entity\Enseignant E
-                                        WHERE S.module = M.id
-                                            AND M.responsable = E.id
-                                            AND M.PPN LIKE :UE
-                                        ORDER BY M.intitule')
-            ->setParameter("UE", $UE);
-        //récupération du résultat à partir de la query
-        $result = $query->getResult();
-        //on retourne le résultat
-        return $result;
-    }
 }
