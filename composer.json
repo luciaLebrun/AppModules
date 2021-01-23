@@ -12,6 +12,7 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
+        "league/csv": "8.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",
@@ -37,6 +38,7 @@
         "symfony/twig-bundle": "^5.2",
         "symfony/validator": "5.2.*",
         "symfony/web-link": "5.2.*",
+        "symfony/web-server-bundle": "4.4",
         "symfony/yaml": "5.2.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
@@ -75,8 +77,8 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
-        "database": [
-            "php bin/console doctrine:database:drop --if-exists -f",
+        "prepare": [
+            "php bin/console doctrine:database:drop -f",
             "php bin/console doctrine:database:create",
             "php bin/console doctrine:schema:update --force"
         ],

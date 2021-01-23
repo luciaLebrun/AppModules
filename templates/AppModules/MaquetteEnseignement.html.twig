@@ -12,10 +12,10 @@
                 <div class="btn-group show" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="position: absolute;transform: translate3d(0px, 38px, 0px);top: 0px;left: 0px;will-change: transform;" x-placement="bottom-start">
-                        <a class="dropdown-item" href="/semestre/1">Semestre 1</a>
-                        <a class="dropdown-item" href="/semestre/2">Semestre 2</a>
-                        <a class="dropdown-item" href="/semestre/3">Semestre 3</a>
-                        <a class="dropdown-item" href="/semestre/4">Semestre 4</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 1}) }}">Semestre 1</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 2}) }}">Semestre 2</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 3}) }}">Semestre 3</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 4}) }}">Semestre 4</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/semestre/5">License Pro</a>
                     </div>

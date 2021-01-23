@@ -7,11 +7,10 @@ namespace App\Repository;
 use App\Entity\Module;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+
 /**
- * @method Module|null find($id, $lockMode = null, $lockVersion = null)
- * @method Module|null findOneBy(array $criteria, array $orderBy = null)
- * @method Module[]    findAll()
- * @method Module[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * Class ModuleRepository
+ * @package App\Repository
  */
 class ModuleRepository extends ServiceEntityRepository
 {

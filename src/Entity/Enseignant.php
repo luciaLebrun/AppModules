@@ -3,11 +3,15 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
  * @ORM\Entity(repositoryClass=EnseignantRepository::class)
+ * @ORM\Table(name="enseignant")
  */
 class Enseignant
 {
@@ -16,18 +20,21 @@ class Enseignant
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"get"})
      */
     private ?int $id = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @Groups({"get"})
      */
     private ?string $trigramme = null;
 
     /**
      * @var string|null
      * @ORM\Column(type="string")
+     * @Groups({"get"})
      */
     private ?string $prenom = null;
 
@@ -61,6 +68,22 @@ class Enseignant
      */
     private ?string $contact = null;
 
+    /**
+     * @return static
+     */
+    public static function create(): self
+    {
+        $enseignant = new self();
+        return $enseignant;
+    }
+
+    /**
+     * Enseignant constructor.
+     */
+    public function __construct()
+    {
+        $this->modules = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -166,6 +189,17 @@ class Enseignant
         $this->contact = $contact;
     }
 
+    /**
+     * @return Collection
+     */
+    public function getModules() : Collection
+    {
+        return $this->modules;
+    }
+
+    /**
+     * @param Module $module
+     */
     public function addModule(Module $module) : void
     {
         if(!$this->modules->contains($module))
