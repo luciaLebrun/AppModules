@@ -19,7 +19,7 @@ class CSVFileType extends AbstractType
     {
         $builder
             // ...
-            ->add('File', FileType::class, [
+            ->add('csvFile', FileType::class, [
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
