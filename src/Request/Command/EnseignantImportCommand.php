@@ -5,6 +5,7 @@ namespace App\Request\Command;
 
 
 use App\Entity\Enseignant;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use League\Csv\Reader;
 use Symfony\Component\Console\Command\Command;
@@ -55,23 +56,28 @@ class EnseignantImportCommand extends Command
 
         $results = $reader->fetchAssoc();
 
+        $enseignants = $this->entityManager->getRepository("App:Enseignant")->findAll();
+
         foreach($results as $row)
         {
-            if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
+            if(!(in_array(str_replace(' ', '', $row['trigramme ']), $enseignants))) // verif enseignants
             {
-                $enseignant = new Enseignant();
-
-                $enseignant->setTrigramme(str_replace(' ', '', $row['trigramme ']));
-                $enseignant->setPrenom(explode(' ', $row[' Prénom Nom '])[1]);
-                $enseignant->setNom(explode(' ', $row[' Prénom Nom '])[2]);
-                $enseignant->setServiceDu(str_replace(' ', '', $row[' service dû ']));
-                $enseignant->setStatut(str_replace(' ', '', $row[' statut ']));
-
-                if(str_replace(' ', '', $row[' contact']) != NULL)
+                if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
                 {
-                    $enseignant->setContact(str_replace(' ', '', $row[' contact']));
+                    $enseignant = new Enseignant();
+
+                    $enseignant->setTrigramme(str_replace(' ', '', $row['trigramme ']));
+                    $enseignant->setPrenom(explode(' ', $row[' Prénom Nom '])[1]);
+                    $enseignant->setNom(explode(' ', $row[' Prénom Nom '])[2]);
+                    $enseignant->setServiceDu(str_replace(' ', '', $row[' service dû ']));
+                    $enseignant->setStatut(str_replace(' ', '', $row[' statut ']));
+
+                    if(str_replace(' ', '', $row[' contact']) != NULL)
+                    {
+                        $enseignant->setContact(str_replace(' ', '', $row[' contact']));
+                    }
+                    $this->entityManager->persist($enseignant);
                 }
-                $this->entityManager->persist($enseignant);
             }
 
         }

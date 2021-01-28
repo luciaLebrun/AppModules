@@ -39,7 +39,7 @@ class EnseignantController extends AbstractController
         if ($form->isSubmitted() && $form->isValid())
         {
             /** @var UploadedFile $brochureFile */
-            $fileCSV = $form->get('File')->getData();
+            $fileCSV = $form->get('csvFile')->getData();
 
             if ($fileCSV)
             {
