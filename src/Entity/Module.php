@@ -24,7 +24,7 @@ class Module
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=8)
      */
     private ?string $PPN = null;
 
@@ -35,21 +35,21 @@ class Module
     private ?string $intitule = null;
 
     /**
-     * @var Enseignant|null
-     * @ORM\ManyToMany(targetEntity="Enseignant", inversedBy="modules",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity=enseignant::class, inversedBy="modules")
      */
-    private ?Enseignant $responsable = null;
+    private $responsables;
 
     /**
-     * @ORM\OneToMany(targetEntity="Semaine", mappedBy="module")
+     * @ORM\OneToMany(targetEntity=Semaine::class, mappedBy="module")
      */
-    private Collection $semaines;
+    private $semaines;
 
     /**
      * Module constructor.
      */
     public function __construct()
     {
+        $this->responsables = new ArrayCollection();
         $this->semaines = new ArrayCollection();
     }
 
@@ -94,41 +94,56 @@ class Module
     }
 
     /**
-     * @return Enseignant|null
+     * @return Collection|enseignant[]
      */
-    public function getResponsable(): ?Enseignant
+    public function getResponsables(): Collection
     {
-        return $this->responsable;
+        return $this->responsables;
+    }
+
+    public function addResponsable(enseignant $responsable): self
+    {
+        if (!$this->responsables->contains($responsable)) {
+            $this->responsables[] = $responsable;
+        }
+
+        return $this;
+    }
+
+    public function removeResponsable(enseignant $responsable): self
+    {
+        $this->responsables->removeElement($responsable);
+
+        return $this;
     }
 
     /**
-     * @param Enseignant|null $responsable
+     * @return Collection|Semaine[]
      */
-    public function setResponsable(?Enseignant $responsable): void
-    {
-        $this->responsable = $responsable;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getSemaines() : ArrayCollection
+    public function getSemaines(): Collection
     {
         return $this->semaines;
     }
 
-    /**
-     * @param Semaine $semaine
-     */
-    public function addSemaine(Semaine $semaine): void
+    public function addSemaine(Semaine $semaine): self
     {
-        if(!$this->semaines->contains($semaine))
-        {
+        if (!$this->semaines->contains($semaine)) {
+            $this->semaines[] = $semaine;
             $semaine->setModule($this);
-            $this->semaines->add($semaine);
         }
+
+        return $this;
     }
 
+    public function removeSemaine(Semaine $semaine): self
+    {
+        if ($this->semaines->removeElement($semaine)) {
+            // set the owning side to null (unless already changed)
+            if ($semaine->getModule() === $this) {
+                $semaine->setModule(null);
+            }
+        }
 
-
+        return $this;
+    }
 }

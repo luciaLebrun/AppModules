@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SemaineRepository;
 /**
@@ -17,12 +19,6 @@ class Semaine
      * @ORM\Column(type="integer")
      */
     private ?int $id = null;
-
-    /**
-     * @var Module
-     * @ORM\ManyToOne(targetEntity="Module", inversedBy="semaines", cascade={"remove"})
-     */
-    private Module $module;
 
     /**
      * @var float|null
@@ -67,27 +63,22 @@ class Semaine
     private ?string $commentaires = null;
 
     /**
+     * @ORM\ManyToOne(targetEntity=module::class, inversedBy="semaines")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $module;
+
+    public function __construct()
+    {
+
+    }
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Module
-     */
-    public function getModule(): Module
-    {
-        return $this->module;
-    }
-
-    /**
-     * @param Module $module
-     */
-    public function setModule(Module $module): void
-    {
-        $this->module = $module;
     }
 
     /**
@@ -202,4 +193,15 @@ class Semaine
         $this->commentaires = $commentaires;
     }
 
+    public function getModule(): ?module
+    {
+        return $this->module;
+    }
+
+    public function setModule(?module $module): self
+    {
+        $this->module = $module;
+
+        return $this;
+    }
 }

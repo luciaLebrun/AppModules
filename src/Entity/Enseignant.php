@@ -26,47 +26,46 @@ class Enseignant
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=4)
      * @Groups({"get"})
      */
     private ?string $trigramme = null;
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=30)
      * @Groups({"get"})
      */
     private ?string $prenom = null;
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=50)
      */
     private ?string $nom = null;
 
     /**
      * @var float|null
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private ?float $serviceDu = null;
 
     /**
      * @var string|null
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=8)
      */
     private ?string $statut = null;
 
     /**
-     * @var Collection
-     * @ORM\ManyToMany(targetEntity="Module", mappedBy="responsable")
-     */
-    private Collection $modules;
-
-    /**
      * @var string|null
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", length=12, nullable=true)
      */
     private ?string $contact = null;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Module::class, mappedBy="responsables")
+     */
+    private $modules;
 
     /**
      * @return static
@@ -190,23 +189,21 @@ class Enseignant
     }
 
     /**
-     * @return Collection
+     * @return Collection|Module[]
      */
-    public function getModules() : Collection
+    public function getModules(): Collection
     {
         return $this->modules;
     }
 
-    /**
-     * @param Module $module
-     */
-    public function addModule(Module $module) : void
+    public function addModule(Module $module): self
     {
-        if(!$this->modules->contains($module))
-        {
-            $module->setResponsable($this);
-            $this->modules->add($module);
+        if (!$this->modules->contains($module)) {
+            $this->modules[] = $module;
+            $module->addResponsable($this);
         }
+
+        return $this;
     }
 
 }
