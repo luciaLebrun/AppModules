@@ -36,7 +36,7 @@ class Module
 
     /**
      * @var Enseignant|null
-     * @ORM\ManyToOne(targetEntity="Enseignant", inversedBy="modules",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Enseignant", inversedBy="modules",cascade={"persist"})
      */
     private ?Enseignant $responsable = null;
 

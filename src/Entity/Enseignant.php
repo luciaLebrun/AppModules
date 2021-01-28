@@ -45,10 +45,10 @@ class Enseignant
     private ?string $nom = null;
 
     /**
-     * @var int|null
+     * @var float|null
      * @ORM\Column(type="integer")
      */
-    private ?int $serviceDu = null;
+    private ?float $serviceDu = null;
 
     /**
      * @var string|null
@@ -58,7 +58,7 @@ class Enseignant
 
     /**
      * @var Collection
-     * @ORM\OneToMany(targetEntity="Module", mappedBy="responsable")
+     * @ORM\ManyToMany(targetEntity="Module", mappedBy="responsable")
      */
     private Collection $modules;
 
@@ -142,17 +142,17 @@ class Enseignant
     }
 
     /**
-     * @return int|null
+     * @return float|null
      */
-    public function getServiceDu(): ?int
+    public function getServiceDu(): ?float
     {
         return $this->serviceDu;
     }
 
     /**
-     * @param int|null $serviceDu
+     * @param float|null $serviceDu
      */
-    public function setServiceDu(?int $serviceDu): void
+    public function setServiceDu(?float $serviceDu): void
     {
         $this->serviceDu = $serviceDu;
     }
