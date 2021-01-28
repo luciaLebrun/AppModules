@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Controller;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AppModulesControllerTest extends TestCase
+class AppModulesControllerTest extends WebTestCase
 {
-    public function testSomething()
+    public function testIndex()
     {
-        $this->assertTrue(true);
+        $client = static::createClient();
+
+        $client->request('GET', '/appModule');
+
+        $this->assertEquals(301, $client->getResponse()->getStatusCode());
     }
 }
