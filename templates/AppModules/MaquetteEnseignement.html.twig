@@ -17,7 +17,7 @@
                         <a class="dropdown-item" href="{{ path('semestre', {'semester': 3}) }}">Semestre 3</a>
                         <a class="dropdown-item" href="{{ path('semestre', {'semester': 4}) }}">Semestre 4</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/semestre/5">License Pro</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 5}) }}">License Pro</a>
                     </div>
                 </div>
                 {% if semesterNumber != 5 %}
@@ -30,25 +30,29 @@
 
         <!--Tab UE-->
         <ul class="nav nav-tabs justify-content-around">
+            <li class="nav-item">
+                <a class="nav-link active" href="#Recap"><h4 class="text-secondary m-0">Recap</h4></a>
+            </li>
             {% if semesterNumber != 5 %}
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}1"><h4 class="text-secondary m-0">UE {{ semesterNumber }}1</h4></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}2"><h4 class="text-secondary m-0">UE {{ semesterNumber }}2</h4></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}1"><h4 class="text-secondary m-0">UE {{ semesterNumber }}1</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}2"><h4 class="text-secondary m-0">UE {{ semesterNumber }}2</h4></a>
+                </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}0"><h4 class="text-secondary m-0">UE {{ semesterNumber }}</h4></a>
+                    <a class="nav-link" data-toggle="tab" href="#UE{{ semesterNumber }}0"><h4 class="text-secondary m-0">UE</h4></a>
                 </li>
             {% endif %}
-            <li class="nav-item">
-                <a class="nav-link active" href="#Recap"><h4 class="text-body m-0">Recap</h4></a>
-            </li>
         </ul>
 
         <!--Contenu Tabs-->
         <div id="myTabContent" class="tab-content">
+            <!--Contenu Recap-->
+            <div class="tab-pane fade show active" id="Recap">
+                <p class="text-center my-3">Oops! Les récapitulatifs ne sont pas encore prêtes...</p>
+            </div>
             <!--Contenu UEs-->
             {% for UENumber in 1..2 %}
                 {% if semesterNumber != 5 or UENumber != 1 %}
@@ -62,7 +66,7 @@
                                         {% set module = "" %}{% set nbCol = 0 %}
                                         {% for semaine in semesterWeeks['UE'~UENumber] %}
                                             {% if semaine.module|split(' ')[0] != module %}
-                                                <th scope="col" colspan="3" class="border-left border-right border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsable }}</th>
+                                                <th scope="col" colspan="3" class="border-left border-right border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsables }}</th>
                                                 {% set nbCol = nbCol + 1 %}
                                             {% endif %}
                                             {% set module = semaine.module|split(' ')[0] %}
@@ -157,10 +161,6 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            <!--Contenu Recap-->
-            <div class="tab-pane fade show active" id="Recap">
-                <p class="text-center my-3">Oops! Les récapitulatifs ne sont pas encore prêtes...</p>
-            </div>
         </div>
     </div>
 {% endblock %}
