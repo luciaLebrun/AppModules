@@ -35,7 +35,7 @@ class Module
     private ?string $intitule = null;
 
     /**
-     * @ORM\ManyToMany(targetEntity=enseignant::class, inversedBy="modules")
+     * @ORM\ManyToMany(targetEntity=Enseignant::class, inversedBy="modules")
      */
     private $responsables;
 

@@ -63,7 +63,7 @@ class Semaine
     private ?string $commentaires = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity=module::class, inversedBy="semaines")
+     * @ORM\ManyToOne(targetEntity=Module::class, inversedBy="semaines")
      * @ORM\JoinColumn(nullable=false)
      */
     private $module;

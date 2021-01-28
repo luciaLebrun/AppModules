@@ -3,7 +3,6 @@
 
 namespace App\Repository;
 
-
 use App\Domain\MaquetteEnseignement;
 use App\Entity\Semaine;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -25,13 +24,24 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
         $sem = array();
         for($i = 1; $i <= 2; $i++){
             $UE = "M".$semester.$i."%";
-            $query=$this->_em->createQuery('SELECT E.trigramme AS responsable, M.intitule as module, S.semaine as semaine, NULLIF(S.CM,0) as CM, NULLIF(S.TD,0) as TD, NULLIF(S.TP,0) as TP
-                                        FROM App\Entity\Semaine S, App\Entity\Module M, App\Entity\Enseignant E
-                                        WHERE S.module = M.id
-                                            AND M.responsable = E.id
-                                            AND M.PPN LIKE :UE
-                                        ORDER BY M.intitule')
-                ->setParameter("UE", $UE);
+            $query=$this->createQueryBuilder('s')
+                ->select('m.intitule as module')
+                ->addSelect('s.semaine as semaine')
+                ->addSelect('NULLIF(s.CM,0) as CM')
+                ->addSelect('NULLIF(s.TD,0) as TD')
+                ->addSelect('NULLIF(s.TP,0) as TP')
+                ->addSelect('GROUP_CONCAT(e.trigramme SEPARATOR \' \') AS responsables')
+                ->join('s.module', 'm')
+                ->join('m.responsables','e')
+                ->where('m.PPN LIKE :UE')
+                ->groupBy('m.intitule')
+                ->addGroupBy('s.semaine')
+                ->addGroupBy('s.CM')
+                ->addGroupBy('s.TD')
+                ->addGroupBy('s.TP')
+                ->orderBy('m.intitule')
+                ->setParameter('UE', $UE)
+                ->getQuery();
             $result = $query->getResult();
             $sem['UE'.$i]=$result;
         }
