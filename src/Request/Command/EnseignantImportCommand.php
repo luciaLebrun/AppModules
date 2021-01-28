@@ -45,7 +45,7 @@ class EnseignantImportCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->resetDatabase($this->entityManager);
+       // $this->resetDatabase($this->entityManager);
 
         $io = new SymfonyStyle($input, $output);
 
@@ -56,11 +56,11 @@ class EnseignantImportCommand extends Command
 
         $results = $reader->fetchAssoc();
 
-        $enseignants = $this->entityManager->getRepository("App:Enseignant")->findAll();
+        $enseignantsRep = $this->entityManager->getRepository(Enseignant::class)->findAll();
 
         foreach($results as $row)
         {
-            if(!(in_array(str_replace(' ', '', $row['trigramme ']), $enseignants))) // verif enseignants
+            if(!($this->entityManager->getRepository(Enseignant::class)->findOneBy(array('trigramme' => str_replace(' ', '', $row['trigramme '])))))
             {
                 if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
                 {
@@ -79,7 +79,6 @@ class EnseignantImportCommand extends Command
                     $this->entityManager->persist($enseignant);
                 }
             }
-
         }
 
         $this->entityManager->flush();
