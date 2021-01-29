@@ -1,13 +1,46 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Controller;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AppModulesControllerTest extends TestCase
+class AppModulesControllerTest extends WebTestCase
 {
-    public function testSomething()
+    public function testIndex()
     {
-        $this->assertTrue(true);
+        $client = static::createClient();
+
+        $client->request('GET', '/appModule');
+
+        $this->assertEquals(301, $client->getResponse()->getStatusCode());
+    }
+
+    public function testMaquetteEnseignement()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/appModule/semestre/2');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        // Test 1 : the agenda section gives a week-by-week schedule of the first semester
+        $this->assertSelectorTextContains('table > tbody > tr:nth-of-type(2) > th', 'S5');
+        $this->assertSelectorTextContains('table > tbody > tr:last-of-type > th', 'S26');
+
+        // Test 2 : the assignement is done by module of the selected semester
+        $this->assertSelectorTextContains('div.tab-pane:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(2)', 'BCOO2');
+        $this->assertSelectorTextContains('div.tab-pane:nth-of-type(3) > div > table > thead > tr > th:nth-of-type(2)', 'AMN2');
+
+        // Test 3 : the assignement is done by the type of teaching
+        $this->assertSelectorTextContains('table > tbody > tr:first-of-type > th:nth-of-type(2)', 'CM');
+        $this->assertSelectorTextContains('table > tbody > tr:first-of-type > th:nth-of-type(3)', 'TD');
+        $this->assertSelectorTextContains('table > tbody > tr:first-of-type > th:nth-of-type(4)', 'TP');
+
+        // Test 4 : the responsables of each module is identified
+        $this->assertSelectorTextContains('div.tab-pane:nth-of-type(2) > div > table > thead > tr > th:nth-of-type(2)', 'ECa');
+        $this->assertSelectorTextContains('div.tab-pane:nth-of-type(3) > div > table > thead > tr > th:nth-of-type(2)', 'PCr');
+
+        // Test 5 : it is possible to consult other agenda
+        $link = $crawler->filter('a:contains("Semestre")')->eq(0)->link();
+        $crawler = $client->click($link);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
