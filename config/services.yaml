@@ -38,6 +38,13 @@ services:
         tags:
             - { name: console.command }
 
+    console_command.modules_import:
+        class: App\Request\Command\ModulesImportCommand
+        arguments:
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: console.command }
+
     App\Service\FileUploader:
         arguments:
             $targetDirectory: '%csv_directory%'
