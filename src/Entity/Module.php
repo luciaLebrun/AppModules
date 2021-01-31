@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
- * @ORM\Table(name="module")
  */
 class Module
 {
