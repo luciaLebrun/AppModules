@@ -5,14 +5,12 @@ namespace App\Request\Command;
 
 
 use App\Entity\Enseignant;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use League\Csv\Reader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\HttpFoundation\Response;
 
 class EnseignantImportCommand extends Command
 {
@@ -45,22 +43,19 @@ class EnseignantImportCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->resetDatabase($this->entityManager);
 
         $io = new SymfonyStyle($input, $output);
 
         $io->title("En attente de l'importation des csv..");
 
-        $reader = Reader::createFromPath("..\src\Request\CSV\\enseignants.csv", "r");
+        $reader = Reader::createFromPath('%kernel.project_dir%/../src/Request/CSV/enseignants.csv', "r");
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
 
-        $enseignants = $this->entityManager->getRepository("App:Enseignant")->findAll();
-
         foreach($results as $row)
         {
-            if(!(in_array(str_replace(' ', '', $row['trigramme ']), $enseignants))) // verif enseignants
+            if(!($this->entityManager->getRepository(Enseignant::class)->findOneBy(array('trigramme' => str_replace(' ', '', $row['trigramme '])))))
             {
                 if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
                 {
@@ -79,27 +74,14 @@ class EnseignantImportCommand extends Command
                     $this->entityManager->persist($enseignant);
                 }
             }
-
         }
 
         $this->entityManager->flush();
 
-        unlink("..\src\Request\CSV\\enseignants.csv");
+        unlink('%kernel.project_dir%/../src/Request/CSV/enseignants.csv');
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
     }
 
-    /**
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function resetDatabase(EntityManagerInterface $em): Response
-    {
-        $query = $em->createQuery(
-            'DELETE FROM App\Entity\Enseignant'
-        )->execute();
-
-        return new Response('', Response::HTTP_OK);
-    }
 }
