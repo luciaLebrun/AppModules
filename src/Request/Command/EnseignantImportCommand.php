@@ -48,7 +48,7 @@ class EnseignantImportCommand extends Command
 
         $io->title("En attente de l'importation des csv..");
 
-        $reader = Reader::createFromPath("..\src\Request\CSV\\enseignants.csv", "r");
+        $reader = Reader::createFromPath('%kernel.project_dir%/../src/Request/CSV/enseignants.csv', "r");
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
@@ -78,7 +78,7 @@ class EnseignantImportCommand extends Command
 
         $this->entityManager->flush();
 
-        unlink("..\src\Request\CSV\\enseignants.csv");
+        unlink('%kernel.project_dir%/../src/Request/CSV/enseignants.csv');
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;

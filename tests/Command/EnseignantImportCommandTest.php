@@ -43,7 +43,8 @@ class EnseignantImportCommandTest extends TestCase
 
     public function testExecute()
     {
-        $myfile= fopen("..\..\Request\CSV\\enseignants.csv","x+");
+        $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/enseignants.csv',"w");
+        fwrite($myfile, "trigramme ; Prénom Nom ; service dû ; statut ; contact");
         fclose($myfile);
         $this->commandTester->execute([]);
         $this->assertEquals(Command::SUCCESS, $this->commandTester->getStatusCode());
