@@ -3,7 +3,6 @@
 
 namespace App\Tests\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -21,7 +20,8 @@ class EnseignantControllerTest extends WebTestCase
 
         $client->request('GET', '/AppModules/import_enseignants');
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('legend', 'Importer un CSV');
     }
 
 }
