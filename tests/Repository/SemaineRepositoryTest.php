@@ -3,12 +3,17 @@
 namespace App\Tests\Repository;
 
 use App\Entity\Semaine;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
+/**
+ * Class SemaineRepositoryTest
+ * @package App\Tests\Repository
+ */
 class SemaineRepositoryTest extends KernelTestCase
 {
     /**
-     * @var \Doctrine\ORM\EntityManager
+     * @var EntityManager
      */
     private $entityManager;
 

@@ -5,14 +5,12 @@ namespace App\Request\Command;
 
 
 use App\Entity\Enseignant;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use League\Csv\Reader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\HttpFoundation\Response;
 
 class EnseignantImportCommand extends Command
 {
@@ -45,7 +43,6 @@ class EnseignantImportCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-       // $this->resetDatabase($this->entityManager);
 
         $io = new SymfonyStyle($input, $output);
 
@@ -55,8 +52,6 @@ class EnseignantImportCommand extends Command
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
-
-        $enseignantsRep = $this->entityManager->getRepository(Enseignant::class)->findAll();
 
         foreach($results as $row)
         {
@@ -89,16 +84,4 @@ class EnseignantImportCommand extends Command
         return Command::SUCCESS;
     }
 
-    /**
-     * @param EntityManagerInterface $em
-     * @return Response
-     */
-    public function resetDatabase(EntityManagerInterface $em): Response
-    {
-        $query = $em->createQuery(
-            'DELETE FROM App\Entity\Enseignant'
-        )->execute();
-
-        return new Response('', Response::HTTP_OK);
-    }
 }
