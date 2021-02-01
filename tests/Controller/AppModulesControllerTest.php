@@ -4,13 +4,17 @@ namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class AppModulesControllerTest
+ * @package App\Tests\Controller
+ */
 class AppModulesControllerTest extends WebTestCase
 {
     public function testIndex()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/appModule');
+        $client->request('GET', '/AppModules');
 
         $this->assertEquals(301, $client->getResponse()->getStatusCode());
     }
@@ -18,7 +22,7 @@ class AppModulesControllerTest extends WebTestCase
     public function testMaquetteEnseignement()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/appModule/semestre/2');
+        $crawler = $client->request('GET', '/AppModules/semestre/2');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         // Test 1 : the agenda section gives a week-by-week schedule of the first semester
