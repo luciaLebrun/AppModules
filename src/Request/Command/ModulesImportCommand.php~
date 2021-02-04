@@ -68,13 +68,27 @@ class ModulesImportCommand extends Command
                     $this->entityManager->persist($module);
                 }
             }
+
         }
 
         $this->entityManager->flush();
 
-        unlink('%kernel.project_dir%/../Request/CSV/modules.csv');
+        unlink("..\src\Request\CSV\\modules.csv");
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
+    }
+
+    /**
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function resetDatabase(EntityManagerInterface $em): Response
+    {
+        $query = $em->createQuery(
+            'DELETE FROM App\Entity\Module'
+        )->execute();
+
+        return new Response('', Response::HTTP_OK);
     }
 }
