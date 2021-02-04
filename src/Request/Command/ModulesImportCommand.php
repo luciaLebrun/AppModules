@@ -49,30 +49,33 @@ class ModulesImportCommand extends Command
 
         $io->title("En attente de l'importation des csv..");
 
-        $reader = Reader::createFromPath('%kernel.project_dir%/../Request/CSV/modules.csv', "r");
+        $reader = Reader::createFromPath('../Request/CSV/modules.csv', "r");
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
 
         foreach($results as $row)
         {
-            if(!($this->entityManager->getRepository(Module::class)->findOneBy(array('module(PPN) ' => str_replace(' ', '', $row['module(PPN) ']))))) // suppression des espaces inutiles
+            if(substr($row['module(PPN) '], 0,1) != '#') // Exclusion des commentaires éventuels
             {
-                if(substr($row['module(PPN) '], 0,1) != '#') // Exclusion des commentaires éventuels
+
+                $module = $this->entityManager->getRepository(Module::class)->findOneBy(array('module(PPN) ' => str_replace(' ', '', $row['module(PPN) ']))); // suppression des espaces inutiles
+
+                if($module == null)
                 {
                     $module = new Module();
-
-                    $module->setPPN(str_replace(' ', '', $row['module(PPN) ']));
-                    $module->setIntitule(str_replace(' ', '', $row[' module(GPU) intitulé '])[1]);
-
-                    $this->entityManager->persist($module);
                 }
+
+                $module->setPPN(str_replace(' ', '', $row['module(PPN) ']));
+                $module->setIntitule(str_replace(' ', '', $row[' module(GPU) intitulé '])[1]);
+
+                $this->entityManager->persist($module);
             }
         }
 
         $this->entityManager->flush();
 
-        unlink('%kernel.project_dir%/../Request/CSV/modules.csv');
+        unlink('../Request/CSV/modules.csv');
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
