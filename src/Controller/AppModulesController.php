@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Enseignant;
+use App\Entity\Module;
 use App\Entity\Semaine;
+use App\Repository\ModuleRepository;
+use App\Repository\SemaineRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -57,6 +61,33 @@ class AppModulesController extends AbstractController
             'semesterWeeks'=>$semesterWeeks,
             'semesterFirstWeek'=>$semesterFirstWeek,
             'semesterLastWeek'=>$semesterLastWeek,
+        ]);
+    }
+
+    /**
+     * @param $ppn
+     * @return Response
+     * @Route("/module/{ppn}", name="FicheModule", requirements={"ppn"="M.+"}))
+     */
+    public function FicheModule($ppn): Response
+    {
+        $moduleRepo = $this->getDoctrine()->getRepository(Module::class);
+        $module = $moduleRepo->findOneBy(['PPN' => $ppn]);
+
+        $enseignantRepo = $this->getDoctrine()->getRepository(Enseignant::class);
+        $responsablesModule = $module->getResponsables();
+        $responsables = [];
+        $i = 0;
+        foreach ($responsablesModule as $responsableModule)
+        {
+            $responsables[$i] = $enseignantRepo->find($responsableModule);
+            $i++;
+        }
+
+        return $this->render('AppModules/FicheModule.html.twig', [
+
+            'module'=> $module,
+            'responsables'=>$responsables,
         ]);
     }
 }

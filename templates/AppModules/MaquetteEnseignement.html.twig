@@ -17,7 +17,7 @@
                         <a class="dropdown-item" href="{{ path('semestre', {'semester': 3}) }}">Semestre 3</a>
                         <a class="dropdown-item" href="{{ path('semestre', {'semester': 4}) }}">Semestre 4</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 5}) }}">License Pro</a>
+                        <a class="dropdown-item" href="{{ path('semestre', {'semester': 5}) }}">Licence Pro</a>
                     </div>
                 </div>
                 {% if semesterNumber != 5 %}
@@ -66,7 +66,7 @@
                                         {% set module = "" %}{% set nbCol = 0 %}
                                         {% for semaine in semesterWeeks['UE'~UENumber] %}
                                             {% if semaine.module|split(' ')[0] != module %}
-                                                <th scope="col" colspan="3" class="border-left border-right border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsables }}</th>
+                                                    <th scope="col" colspan="3" class="border-left border-right border-light text-center">{{ semaine.module|split(' ')[0] }}<br/>{{ semaine.responsables }}</th>
                                                 {% set nbCol = nbCol + 1 %}
                                             {% endif %}
                                             {% set module = semaine.module|split(' ')[0] %}

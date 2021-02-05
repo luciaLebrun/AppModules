@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AppModules{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <!--Nom Module-->
+    <div class="col-12">
+        <h4 class="text-secondary mt-5" >{{ module.PPN }} - {{ module.intitule }}</h4>
+        {% for responsable in responsables %}
+            <p class="text-body m-0">{{ responsable.nom }} {{ responsable.prenom }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
