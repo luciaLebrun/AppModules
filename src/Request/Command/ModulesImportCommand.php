@@ -11,7 +11,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\HttpFoundation\Response;
 
 class ModulesImportCommand extends Command
 {
@@ -44,12 +43,11 @@ class ModulesImportCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
         $io = new SymfonyStyle($input, $output);
 
         $io->title("En attente de l'importation des csv..");
 
-        $reader = Reader::createFromPath('../Request/CSV/modules.csv', "r");
+        $reader = Reader::createFromPath('../src/Request/CSV/modules.csv', "r");
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
@@ -58,8 +56,9 @@ class ModulesImportCommand extends Command
         {
             if(substr($row['module(PPN) '], 0,1) != '#') // Exclusion des commentaires éventuels
             {
-
-                $module = $this->entityManager->getRepository(Module::class)->findOneBy(array('module(PPN) ' => str_replace(' ', '', $row['module(PPN) ']))); // suppression des espaces inutiles
+                // On récupère le module à partir de son PPN
+                $module = $this->entityManager->getRepository(Module::class)->findOneBy(array(
+                    'PPN' => str_replace(' ', '', $row['module(PPN) '])));
 
                 if($module == null)
                 {
@@ -67,7 +66,7 @@ class ModulesImportCommand extends Command
                 }
 
                 $module->setPPN(str_replace(' ', '', $row['module(PPN) ']));
-                $module->setIntitule(str_replace(' ', '', $row[' module(GPU) intitulé '])[1]);
+                $module->setIntitule($row[' module(GPU) intitulé']);
 
                 $this->entityManager->persist($module);
             }
@@ -75,7 +74,7 @@ class ModulesImportCommand extends Command
 
         $this->entityManager->flush();
 
-        unlink('../Request/CSV/modules.csv');
+        unlink('../src/Request/CSV/modules.csv');
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;

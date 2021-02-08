@@ -24,15 +24,7 @@ class CSVFileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $pattern = '';
-        if(in_array("enseignant", $options))
-        {
-            $pattern = '/^(enseignants)\.csv$/';
-        }
-        else if(in_array("modules", $options))
-        {
-            $pattern = '/^(modules)\.csv$/';
-        }
+        $pattern = '/^(enseignants|modules)\.csv$/';
         $builder
             // ...
             ->add('csvFile', FileType::class, [
@@ -65,6 +57,7 @@ class CSVFileType extends AbstractType
 
             ])
             ->add('Envoyer', SubmitType::class, ['label' => 'Envoyer']);
+
     }
 
     /**
