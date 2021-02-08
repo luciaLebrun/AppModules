@@ -48,37 +48,45 @@ class EnseignantImportCommand extends Command
 
         $io->title("En attente de l'importation des csv..");
 
-        $reader = Reader::createFromPath('%kernel.project_dir%/../src/Request/CSV/enseignants.csv', "r");
+        $reader = Reader::createFromPath('../src/Request/CSV/enseignants.csv', "r");
         $reader->setDelimiter(';');
 
         $results = $reader->fetchAssoc();
 
         foreach($results as $row)
         {
-            if(!($this->entityManager->getRepository(Enseignant::class)->findOneBy(array('trigramme' => str_replace(' ', '', $row['trigramme '])))))
+            if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
             {
-                if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
+                // On récupère l'enseignant à partie de son trigramme
+                $enseignant = $this->entityManager->getRepository(Enseignant::class)->findOneBy(array(
+                    'trigramme' => str_replace(' ', '', $row['trigramme '])));
+
+                // Si l'enseignant n'existe pas on le créé
+                if($enseignant == null)
                 {
                     $enseignant = new Enseignant();
-
-                    $enseignant->setTrigramme(str_replace(' ', '', $row['trigramme ']));
-                    $enseignant->setPrenom(explode(' ', $row[' Prénom Nom '])[1]);
-                    $enseignant->setNom(explode(' ', $row[' Prénom Nom '])[2]);
-                    $enseignant->setServiceDu(str_replace(' ', '', $row[' service dû ']));
-                    $enseignant->setStatut(str_replace(' ', '', $row[' statut ']));
-
-                    if(str_replace(' ', '', $row[' contact']) != NULL)
-                    {
-                        $enseignant->setContact(str_replace(' ', '', $row[' contact']));
-                    }
-                    $this->entityManager->persist($enseignant);
                 }
+
+                $enseignant->setTrigramme(str_replace(' ', '', $row['trigramme ']));
+                $enseignant->setPrenom(explode(' ', $row[' Prénom Nom '])[1]);
+                $enseignant->setNom(explode(' ', $row[' Prénom Nom '])[2]);
+                $enseignant->setServiceDu(str_replace(' ', '', $row[' service dû ']));
+                $enseignant->setStatut(str_replace(' ', '', $row[' statut ']));
+
+                // Si les contacts ne sont pas nuls
+                if(str_replace(' ', '', $row[' contact']) != NULL)
+                {
+                    $enseignant->setContact(str_replace(' ', '', $row[' contact']));
+                }
+                $this->entityManager->persist($enseignant);
+
             }
+
         }
 
         $this->entityManager->flush();
 
-        unlink('%kernel.project_dir%/../src/Request/CSV/enseignants.csv');
+        unlink('../src/Request/CSV/enseignants.csv');
 
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
