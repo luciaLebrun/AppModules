@@ -33,7 +33,7 @@ class EnseignantController extends AbstractController
     public function import(Request $request, FileUploader $fileUploader, KernelInterface $kernel): Response
     {
         $file = new CSVFile();
-        $name = "enseignant";
+        $name = "enseignants";
         $form = $this->createForm(CSVFileType::class, [$file,$name]);
         $form->handleRequest($request);
 
