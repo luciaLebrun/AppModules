@@ -17,13 +17,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 /**
- * Class EnseignantController
+ * Class ModulesController
  * @package App\Controller
  */
-class EnseignantController extends AbstractController
+class ModulesController extends AbstractController
 {
     /**
-     * @Route("/import_enseignants", name="import_enseignants")
+     * @Route("/import_modules", name="import_modules")
      * @param Request $request
      * @param FileUploader $fileUploader
      * @param KernelInterface $kernel
@@ -33,7 +33,7 @@ class EnseignantController extends AbstractController
     public function import(Request $request, FileUploader $fileUploader, KernelInterface $kernel): Response
     {
         $file = new CSVFile();
-        $name = "enseignant";
+        $name = "module";
         $form = $this->createForm(CSVFileType::class, [$file,$name]);
         $form->handleRequest($request);
 
@@ -49,7 +49,7 @@ class EnseignantController extends AbstractController
             $application = new Application($kernel);
             $application->setAutoExit(false);
 
-            $input = new ArrayInput(array('command' => 'csv:import:enseignants'));
+            $input = new ArrayInput(array('command' => 'csv:import:modules'));
             $output = new BufferedOutput();
             $application->run($input, $output);
 
@@ -58,7 +58,7 @@ class EnseignantController extends AbstractController
             return $this->redirectToRoute('semestre',['semester'=>1],301);
         }
 
-        return $this->render('Request/UploadEnseignant.html.twig', [
+        return $this->render('Request/UploadModule.html.twig', [
             'form' => $form->createView(),
         ]);
     }
