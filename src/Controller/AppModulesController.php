@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Enseignant;
 use App\Entity\Module;
+use App\Entity\ModuleDetails;
 use App\Entity\Semaine;
+use App\Repository\ModuleDetailsRepository;
 use App\Repository\ModuleRepository;
 use App\Repository\SemaineRepository;
 use DateTime;
@@ -66,6 +68,7 @@ class AppModulesController extends AbstractController
 
     /**
      * @param $ppn
+     * @param $semaine
      * @return Response
      * @Route("/module/{ppn}", name="FicheModule", requirements={"ppn"="M.+"}))
      */
@@ -83,11 +86,14 @@ class AppModulesController extends AbstractController
             $responsables[$i] = $enseignantRepo->find($responsableModule);
             $i++;
         }
+        $moduledetailsrepo = $this->getDoctrine()->getRepository(ModuleDetails::class);
+        $moduledetails = $moduledetailsrepo->findAll();
 
         return $this->render('AppModules/FicheModule.html.twig', [
 
             'module'=> $module,
             'responsables'=>$responsables,
+            'detailsmodule'=>$moduledetails,
         ]);
     }
 }
