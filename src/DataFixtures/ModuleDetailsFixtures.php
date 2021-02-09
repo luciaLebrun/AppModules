@@ -13,7 +13,7 @@ class ModuleDetailsFixtures extends Fixture implements DependentFixtureInterface
     {
 
         $moduledetails = new ModuleDetails();
-        $moduledetails->setSemaine(36);
+        $moduledetails->addSemaine();
         $moduledetails->setNbGroupe(1);
         $moduledetails->setTypeCour('CM');
         $moduledetails->setTrigramme($this->getReference('ECa'));
@@ -21,7 +21,7 @@ class ModuleDetailsFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($moduledetails);
 
         $moduledetails = new ModuleDetails();
-        $moduledetails->setSemaine(36);
+        $moduledetails->addSemaine();
         $moduledetails->setNbGroupe(1);
         $moduledetails->setTypeCour('TD');
         $moduledetails->setTrigramme($this->getReference('RC'));
@@ -29,7 +29,7 @@ class ModuleDetailsFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($moduledetails);
 
         $moduledetails = new ModuleDetails();
-        $moduledetails->setSemaine(36);
+        $moduledetails->addSemaine();
         $moduledetails->setNbGroupe(1);
         $moduledetails->setTypeCour('TD');
         $moduledetails->setTrigramme($this->getReference('FAB'));
@@ -37,7 +37,7 @@ class ModuleDetailsFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($moduledetails);
 
         $moduledetails = new ModuleDetails();
-        $moduledetails->setSemaine(36);
+        $moduledetails->addSemaine();
         $moduledetails->setNbGroupe(1);
         $moduledetails->setTypeCour('TD');
         $moduledetails->setTrigramme($this->getReference('ECa'));

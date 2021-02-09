@@ -20,10 +20,9 @@ class ModuleDetails
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity=Semaine::class, inversedBy="moduleDetails")
      */
     private $semaine;
-
 
     /**
      * @ORM\Column(type="integer")
@@ -51,6 +50,7 @@ class ModuleDetails
     public function __construct()
     {
         $this->trigramme = new ArrayCollection();
+        $this->semaine = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -58,17 +58,30 @@ class ModuleDetails
         return $this->id;
     }
 
-    public function getSemaine(): ?int
+    /**
+     * @return Collection|Semaine[]
+     */
+    public function getSemaine(): Collection
     {
         return $this->semaine;
     }
 
-    public function setSemaine(int $semaine): self
+    public function addSemaine(Semaine $semaine): self
     {
-        $this->semaine = $semaine;
+        if (!$this->semaine->contains($semaine)) {
+            $this->semaine[] = $semaine;
+        }
 
         return $this;
     }
+
+    public function removeSemaine(Semaine $semaine): self
+    {
+        $this->semaine->removeElement($semaine);
+
+        return $this;
+    }
+
 
     public function getNbGroupe(): ?int
     {
