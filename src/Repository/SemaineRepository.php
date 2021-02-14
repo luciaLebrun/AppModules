@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repository;
 
 use App\Domain\MaquetteEnseignement;
@@ -22,9 +21,9 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
     public function findEachWeekOfASemester($semester): iterable
     {
         $sem = array();
-        for($i = 1; $i <= 2; $i++){
-            $UE = "M".$semester.$i."%";
-            $query=$this->createQueryBuilder('s')
+        for ($i = 1; $i <= 2; $i++) {
+            $UE = "M" . $semester . $i . "%";
+            $query = $this->createQueryBuilder('s')
                 ->select('m.intitule as module')
                 ->addSelect('s.semaine as semaine')
                 ->addSelect('NULLIF(s.CM,0) as CM')
@@ -32,7 +31,7 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
                 ->addSelect('NULLIF(s.TP,0) as TP')
                 ->addSelect('GROUP_CONCAT(e.trigramme SEPARATOR \' \') AS responsables')
                 ->join('s.module', 'm')
-                ->join('m.responsables','e')
+                ->join('m.responsables', 'e')
                 ->where('m.PPN LIKE :UE')
                 ->groupBy('m.intitule')
                 ->addGroupBy('s.semaine')
@@ -43,7 +42,7 @@ class SemaineRepository extends ServiceEntityRepository implements MaquetteEnsei
                 ->setParameter('UE', $UE)
                 ->getQuery();
             $result = $query->getResult();
-            $sem['UE'.$i]=$result;
+            $sem['UE' . $i] = $result;
         }
         return $sem;
     }

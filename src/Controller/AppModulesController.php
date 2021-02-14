@@ -16,7 +16,7 @@ class AppModulesController extends AbstractController
      */
     public function index(): RedirectResponse
     {
-        return $this->redirectToRoute('semestre',['semester'=>1],301);
+        return $this->redirectToRoute('semestre', ['semester' => 1], 301);
     }
 
     /**
@@ -24,26 +24,27 @@ class AppModulesController extends AbstractController
      * @return Response
      * @Route("/semestre/{semester<\d+>}", name="semestre")
      */
-    public function MaquetteEnseignement(int $semester): Response
+    public function maquetteEnseignement(int $semester): Response
     {
-        $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
+        $weekRepo = $this->getDoctrine()->getRepository(Semaine::class);
 
-        $semesterWeeks=$weekRepo->findEachWeekOfASemester($semester);
+        $semesterWeeks = $weekRepo->findEachWeekOfASemester($semester);
 
         // TODO: Get the school calendar instead of the switch
-        $semesterFirstDay = ""; $semesterLastDay = "";
-        switch ($semester){
-            case 1 :
-            case 3 :
+        $semesterFirstDay = "";
+        $semesterLastDay = "";
+        switch ($semester) {
+            case 1:
+            case 3:
                 $semesterFirstDay = new DateTime("2019-09-02");
                 $semesterLastDay = new DateTime("2020-01-26");
                 break;
-            case 2 :
-            case 4 :
+            case 2:
+            case 4:
                 $semesterFirstDay = new DateTime("2020-01-27");
                 $semesterLastDay = new DateTime("2020-06-22");
                 break;
-            case 5 :
+            case 5:
                 $semesterFirstDay = new DateTime("2019-09-02");
                 $semesterLastDay = new DateTime("2020-06-22");
                 break;
@@ -53,10 +54,10 @@ class AppModulesController extends AbstractController
         $semesterLastWeek = $semesterLastDay->format("W");
 
         return $this->render('AppModules/MaquetteEnseignement.html.twig', [
-            'semesterNumber'=>$semester,
-            'semesterWeeks'=>$semesterWeeks,
-            'semesterFirstWeek'=>$semesterFirstWeek,
-            'semesterLastWeek'=>$semesterLastWeek,
+            'semesterNumber' => $semester,
+            'semesterWeeks' => $semesterWeeks,
+            'semesterFirstWeek' => $semesterFirstWeek,
+            'semesterLastWeek' => $semesterLastWeek,
         ]);
     }
 }

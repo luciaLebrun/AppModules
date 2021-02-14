@@ -309,7 +309,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(46 );
+        $semaine->setSemaine(46);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(0);
@@ -320,7 +320,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(47 );
+        $semaine->setSemaine(47);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -331,7 +331,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(48 );
+        $semaine->setSemaine(48);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -342,7 +342,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(49 );
+        $semaine->setSemaine(49);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -353,7 +353,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(50 );
+        $semaine->setSemaine(50);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -364,7 +364,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(51 );
+        $semaine->setSemaine(51);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -375,7 +375,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(02 );
+        $semaine->setSemaine(02);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -386,7 +386,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(03 );
+        $semaine->setSemaine(03);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -1150,10 +1150,10 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(0);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-        
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1202'));
         $semaine->setSemaine(37);
@@ -1161,228 +1161,231 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(0);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-        
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(38);
-        $semaine->setCM(0); 
-        $semaine->setTD(0);
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-        
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(39);
-        $semaine->setCM(0); 
-        $semaine->setTD(0); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(40); 
-        $semaine->setCM(1); 
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-        
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(41);
-        $semaine->setCM(1); 
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires(' report sinon impossible...'); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(41); 
-        $semaine->setCM(0); $semaine->setTD(1);
-        $semaine->setTP(5); $semaine->setSurveillances(0);
-        $semaine->setCharges(0); $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(42);
-        $semaine->setCM(1);
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(45);
-        $semaine->setCM(1); 
-        $semaine->setTD(1);
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(46); 
-        $semaine->setCM(1); 
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(47); 
-        $semaine->setCM(1); 
-        $semaine->setTD(1);
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202'));
-        $semaine->setSemaine(48); 
-        $semaine->setCM(1); 
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(49); 
-        $semaine->setCM(1); 
-        $semaine->setTD(1); 
-        $semaine->setTP(5); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(50); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0);
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(51); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(02); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(03); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1202')); 
-        $semaine->setSemaine(04); 
-        $semaine->setCM(0); 
-        $semaine->setTD(0); 
-        $semaine->setTP(0);
-        $semaine->setSurveillances(2); 
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1203')); 
-        $semaine->setSemaine(36); 
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(38);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('  # TP dÃ©calÃ©s...');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1203')); 
-        $semaine->setSemaine(37); 
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(1.5);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1203'));
-        $semaine->setSemaine(38); 
-        $semaine->setCM(1);
-        $semaine->setTD(2); 
-        $semaine->setTP(1.5);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(39);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(40);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(41);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires(' report sinon impossible...');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(41);
+        $semaine->setCM(0);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(42);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(45);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(46);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(47);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(48);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(49);
+        $semaine->setCM(1);
+        $semaine->setTD(1);
+        $semaine->setTP(5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(50);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(51);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(02);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(03);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1202'));
+        $semaine->setSemaine(04);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(2);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203'));
-        $semaine->setSemaine(39); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
+        $semaine->setSemaine(36);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('  # TP dÃ©calÃ©s...');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1203'));
+        $semaine->setSemaine(37);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1203'));
+        $semaine->setSemaine(38);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1203'));
+        $semaine->setSemaine(39);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203'));
         $semaine->setSemaine(40);
         $semaine->setCM(0);
@@ -1392,313 +1395,316 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203'));
         $semaine->setSemaine(41);
         $semaine->setCM(0);
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1203')); 
-        $semaine->setSemaine(42); 
-        $semaine->setCM(0); 
-        $semaine->setTD(1.5);
-        $semaine->setTP(0);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1203')); 
-        $semaine->setSemaine(45); 
-        $semaine->setCM(0); 
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1203'));
+        $semaine->setSemaine(42);
+        $semaine->setCM(0);
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
-        $semaine->setCommentaires(''); 
+        $semaine->setCommentaires('');
         $manager->persist($semaine);
 
-        $semaine = new Semaine(); 
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1203'));
+        $semaine->setSemaine(45);
+        $semaine->setCM(0);
+        $semaine->setTD(1.5);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(46);
-        $semaine->setCM(1); 
+        $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
-        $semaine->setCommentaires(''); 
+        $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1204')); 
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(48);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(2); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204')); 
-        $semaine->setSemaine(49);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(2); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(50);
         $semaine->setCM(1);
-        $semaine->setTD(2); 
-        $semaine->setTP(1.5);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1204')); 
-        $semaine->setSemaine(51);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(1.5);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(02);
-        $semaine->setCM(1); 
         $semaine->setTD(2);
-        $semaine->setTP(1.5);
+        $semaine->setTP(2);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(03);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(1.5);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(46); 
-        $semaine->setCM(0);
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0);
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(48); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0);
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(49); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(50); 
-        $semaine->setCM(0);
-        $semaine->setTD(0); 
-        $semaine->setTP(2); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(51); 
-        $semaine->setCM(0); 
-        $semaine->setTD(0); 
-        $semaine->setTP(2); 
-        $semaine->setSurveillances(0); 
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(36); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(37); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(38);
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(39); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(40); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(41); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(42); 
-        $semaine->setCM(0); 
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(49);
+        $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205'));
-        $semaine->setSemaine(45);
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0);
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(46); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(' grouper les TD par 2 et les mettre en amphi si possible...');
-        $manager->persist($semaine);
-     
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(47); $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-     
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205'));
-        $semaine->setSemaine(48); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
+        $semaine->setTP(2);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205'));
-        $semaine->setSemaine(49); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires(''); 
-        $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(50); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(50);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(51);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(02);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(03);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(46);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(48);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(49);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(50);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(51);
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(2);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(36);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(37);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(38);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(39);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(40);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(41);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(42);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(45);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(46);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires(' grouper les TD par 2 et les mettre en amphi si possible...');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(47);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(48);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(49);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(50);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1205'));
         $semaine->setSemaine(51);
         $semaine->setCM(0);
@@ -1708,7 +1714,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1205'));
         $semaine->setSemaine(02);
@@ -1719,7 +1725,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1205'));
         $semaine->setSemaine(03);
@@ -1741,11 +1747,18 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
-        $semaine->setSemaine(37); $semaine->setCM(0); $semaine->setTD(2); $semaine->setTP(0); $semaine->setSurveillances(0); $semaine->setCharges(0); $semaine->setCommentaires(''); $manager->persist($semaine);
-      
+        $semaine->setSemaine(37);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(38);
@@ -1756,7 +1769,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(39);
@@ -1767,7 +1780,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(40);
@@ -1778,7 +1791,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(41);
@@ -1789,8 +1802,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(42);
         $semaine->setCM(0);
@@ -1800,7 +1813,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(45);
@@ -1811,7 +1824,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(46);
@@ -1822,7 +1835,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(47);
@@ -1833,8 +1846,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-     
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(48);
         $semaine->setCM(0);
@@ -1844,7 +1857,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-     
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(49);
@@ -1855,7 +1868,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(50);
@@ -1866,8 +1879,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-       
-        $semaine = new Semaine(); 
+
+        $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(51);
         $semaine->setCM(0);
@@ -1877,7 +1890,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(02);
@@ -1888,7 +1901,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
-      
+
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1206'));
         $semaine->setSemaine(03);
@@ -1904,7 +1917,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setModule($this->getReference('M2101'));
         $semaine->setSemaine(05);
         $semaine->setCM(0);
-        $semaine->setTD(0); $semaine->setTP(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
@@ -3752,4 +3766,3 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
-

@@ -1,12 +1,12 @@
 <?php
 
-
 namespace App\Entity;
 
 use App\Repository\ModuleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass=ModuleRepository::class)
  * @ORM\Table(name="module")

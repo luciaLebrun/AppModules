@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Request\Command;
-
 
 use App\Entity\Module;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +31,6 @@ class ModulesImportCommand extends Command
         $this
             ->setName("csv:import:modules")
             ->setDescription("Imports a mock CSV file");
-
     }
 
     /**
@@ -52,16 +49,13 @@ class ModulesImportCommand extends Command
 
         $results = $reader->fetchAssoc();
 
-        foreach($results as $row)
-        {
-            if(substr($row['module(PPN) '], 0,1) != '#') // Exclusion des commentaires éventuels
-            {
-                // On récupère le module à partir de son PPN
+        foreach ($results as $row) {
+            if (substr($row['module(PPN) '], 0, 1) != '#') { // Exclusion des commentaires éventuels
+            // On récupère le module à partir de son PPN
                 $module = $this->entityManager->getRepository(Module::class)->findOneBy(array(
                     'PPN' => str_replace(' ', '', $row['module(PPN) '])));
 
-                if($module == null)
-                {
+                if ($module == null) {
                     $module = new Module();
                 }
 

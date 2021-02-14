@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Service;
-
 
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -33,7 +31,7 @@ class FileUploader
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $safeFilename = $this->slugger->slug($originalFilename);
 
-        $fileName = $safeFilename.'.csv';
+        $fileName = $safeFilename . '.csv';
 
         try {
             $file->move($this->getTargetDirectory(), $fileName);

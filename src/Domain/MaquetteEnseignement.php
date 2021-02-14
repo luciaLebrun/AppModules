@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Domain;
-
 
 interface MaquetteEnseignement
 {
-    public function findEachWeekOfASemester($semester):iterable;
+    public function findEachWeekOfASemester($semester): iterable;
 }

@@ -1,11 +1,10 @@
 <?php
 
-
 namespace App\Entity;
-
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SemaineRepository;
+
 /**
  * @ORM\Entity(repositoryClass=SemaineRepository::class)
  */

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Form;
 
 use App\Entity\CSVFile;
@@ -26,7 +25,7 @@ class CSVFileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $pattern = '/^('.$options['data'][1].')\.csv$/';
+        $pattern = '/^(' . $options['data'][1] . ')\.csv$/';
         $builder
             // ...
             ->add('csvFile', FileType::class, [
@@ -60,8 +59,8 @@ class CSVFileType extends AbstractType
 
             ])
             ->add('Envoyer', SubmitType::class, ['label' => 'Envoyer']);
-
     }
+
     /**
      * @param OptionsResolver $resolver
      */
