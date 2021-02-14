@@ -3,6 +3,8 @@
 
 namespace App\Form;
 
+use App\Entity\CSVFile;
+use App\Service\FileUploader;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,15 +26,7 @@ class CSVFileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $pattern = '';
-        if(in_array("enseignant", $options))
-        {
-            $pattern = '/^(enseignants)\.csv$/';
-        }
-        else if(in_array("modules", $options))
-        {
-            $pattern = '/^(modules)\.csv$/';
-        }
+        $pattern = '/^('.$options['data'][1].')\.csv$/';
         $builder
             // ...
             ->add('csvFile', FileType::class, [
@@ -45,6 +39,7 @@ class CSVFileType extends AbstractType
 
                 // unmapped fields can't define their validation using annotations
                 // in the associated entity, so you can use the PHP constraint classes
+
                 'constraints' => [
 
                     new Callback(function ($object, ExecutionContextInterface $context) use ($pattern) {
@@ -65,8 +60,8 @@ class CSVFileType extends AbstractType
 
             ])
             ->add('Envoyer', SubmitType::class, ['label' => 'Envoyer']);
-    }
 
+    }
     /**
      * @param OptionsResolver $resolver
      */

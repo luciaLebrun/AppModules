@@ -14,7 +14,7 @@ class EnseignantFixtures extends Fixture
         $enseignant->setTrigramme('ALa');
         $enseignant->setPrenom('Annick');
         $enseignant->setNom('Lassus');
-        $enseignant->setServiceDu(384);
+        $enseignant->setServiceDu(250);
         $enseignant->setStatut('SEC');
         $manager->persist($enseignant);
         $this->addReference("ALa", $enseignant);
@@ -23,7 +23,7 @@ class EnseignantFixtures extends Fixture
         $enseignant->setTrigramme('CMa');
         $enseignant->setPrenom('Céline');
         $enseignant->setNom('Marteau');
-        $enseignant->setServiceDu(384);
+        $enseignant->setServiceDu(250);
         $enseignant->setStatut('SEC');
         $manager->persist($enseignant);
         $this->addReference("CMa", $enseignant);
@@ -32,7 +32,7 @@ class EnseignantFixtures extends Fixture
         $enseignant->setTrigramme('FGo');
         $enseignant->setPrenom('Frédérique');
         $enseignant->setNom('Gobert');
-        $enseignant->setServiceDu(384);
+        $enseignant->setServiceDu(250);
         $enseignant->setStatut('SEC');
         $manager->persist($enseignant);
         $this->addReference("FGo", $enseignant);
