@@ -15,7 +15,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  * Class ModulesImportCommandTest
  * @package App\Tests\Command
  */
-class ModulesImportCommandTest extends TestCase
+class ModulesImportCommandTest
 {
 
     /** @var ModuleRepository*/
@@ -43,6 +43,7 @@ class ModulesImportCommandTest extends TestCase
 
     public function testExecute()
     {
+        // TODO Modif le chemin d'accès par rapport au test
         $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/modules.csv',"w");
         fwrite($myfile, "module(PPN) ; module(GPU) intitulé");
         fclose($myfile);

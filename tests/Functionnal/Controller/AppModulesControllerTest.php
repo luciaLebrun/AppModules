@@ -23,7 +23,7 @@ class AppModulesControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/AppModules/semestre/2');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
 
         // Test 1 : the agenda section gives a week-by-week schedule of the first semester
         $this->assertSelectorTextContains('table > tbody > tr:nth-of-type(2) > th', 'S5');
@@ -45,6 +45,6 @@ class AppModulesControllerTest extends WebTestCase
         // Test 5 : it is possible to consult other agenda
         $link = $crawler->filter('a:contains("Semestre")')->eq(0)->link();
         $crawler = $client->click($link);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
     }
 }

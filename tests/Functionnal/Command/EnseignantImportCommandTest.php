@@ -16,7 +16,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  * Class EnseignantImportCommandTest
  * @package App\Tests\Command
  */
-class EnseignantImportCommandTest extends TestCase
+class EnseignantImportCommandTest
 {
     /** @var EnseignantRepository*/
     private $customerEntityManagerMock;
@@ -43,6 +43,7 @@ class EnseignantImportCommandTest extends TestCase
 
     public function testExecute()
     {
+        // TODO Modif le chemin d'accès par rapport au test
         $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/enseignants.csv',"w");
         fwrite($myfile, "trigramme ; Prénom Nom ; service dû ; statut ; contact");
         fclose($myfile);
