@@ -2,9 +2,9 @@
 
 [Retour au sommaire](index.md)
 
-* [Types de sociétés](#types-de-société)
+* [Types de société](#types-de-société)
 * [Rôles](#rôles)
-* [Combinaison Type de société/Rôle](#combinaison-type-de-société/rôle)
+* [Combinaison Types de société/Rôle](#combinaison-types-de-société/rôles)
 * [Administrateur](#administrateur)
 
 ## Types de société
@@ -21,7 +21,7 @@
 * Intervenant
 * Etudiant (optionnel)
 
-## Combinaison Types de société/Rôle
+## Combinaison Types de société/Rôles
 
 * Administrateur
     * DDE
@@ -48,7 +48,7 @@
 
 ## Intervenant - Consulteur
 
-[![Key Privilege](images/intervenante.svg)](uml/v1/intervenant.puml)
+[![Key Privilege](images/intervenant.svg)](uml/v1/intervenant.puml)
 
 ## Etudiant - Consulteur (optionnel)
 
