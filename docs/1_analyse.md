@@ -17,7 +17,8 @@
 
 * DDE
 * Responsable de module
-* Enseignant/Intervenant
+* Enseignant
+* Intervenant
 * Etudiant (optionnel)
 
 ## Combinaison Type de société/Rôle
@@ -29,7 +30,8 @@
     * Responsable de module
     * Enseignant/Intervenant
     
-* Etudiant
+* Visiteur
     * Etudiant
-    
+    * Intervenant
+  
 ## Groupement

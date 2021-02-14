@@ -7,3 +7,4 @@
 * [3. Installation](3_installation.md)
 * [4. Environnements](4_environnements.md)
 * [5. Tests](5_tests.md)
+* [6. UML](6_uml.md)

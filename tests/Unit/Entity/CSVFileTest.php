@@ -7,6 +7,10 @@ namespace App\Tests\Unit\Entity;
 use App\Entity\CSVFile;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class CSVFileTest
+ * @package App\Tests\Unit\Entity
+ */
 class CSVFileTest extends TestCase
 {
     public function testIsTrue()

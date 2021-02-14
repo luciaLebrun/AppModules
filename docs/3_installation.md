@@ -4,7 +4,7 @@
 
 ## Récupérer les sources du projet
 ```
-git clone https://github.com/<your-username>/<repo-name>
+git clone https://github.com/luciaLebrun/AppModules.git
 ```
 
 ## Pré-requis
@@ -16,7 +16,7 @@ git clone https://github.com/<your-username>/<repo-name>
 
 Vous pouvez vérifier les pré-requis (sauf Docker et Docker-compose) avec la commande suivante (de la CLI Symfony) :
 
-```dotenv
+```
 symfony check:requirements
 ```
 
@@ -25,7 +25,7 @@ symfony check:requirements
 Dans un premier temps, positionnez vous dans le dossier du projet :
 
 ```
-cd <repo-name>
+cd AppModules
 ```
 
 Exectuer la commande suivante
@@ -42,16 +42,19 @@ symfony serve -d
 
 *Si vous utilisez wamp lancez simplement l'application.*
 
-## Initialiser les base de données
+## Initialiser la base de données
 
 ```
 composer prepare
 ```
 
-Ajouter des 
+Ajouter des données example à la base de données
+```
+php bin/console doctrine:fixtures:load -n
+```
 
 ## Lancer des tests
 
-```dotenv
+```
 php bin/phpunit --testdox
 ```
