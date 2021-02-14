@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Tests\Controller;
+namespace App\Tests\Functionnal\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -11,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class ModulesControllerTest extends WebTestCase
 {
-
     /**
      * Test de la route import_modules
      */

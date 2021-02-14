@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Tests\Form;
+namespace App\Tests\Unit\Form;
 
 
 use Symfony\Component\Form\Test\TypeTestCase;

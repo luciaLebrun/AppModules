@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Tests\Command;
+namespace App\Tests\Functionnal\Command;
 
 
 use App\Repository\EnseignantRepository;
