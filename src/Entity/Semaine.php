@@ -3,8 +3,7 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SemaineRepository;
 /**
@@ -67,11 +66,6 @@ class Semaine
      * @ORM\JoinColumn(nullable=false)
      */
     private $module;
-
-    public function __construct()
-    {
-
-    }
 
     /**
      * @return int|null
@@ -193,11 +187,18 @@ class Semaine
         $this->commentaires = $commentaires;
     }
 
+    /**
+     * @return module|null
+     */
     public function getModule(): ?module
     {
         return $this->module;
     }
 
+    /**
+     * @param module|null $module
+     * @return $this
+     */
     public function setModule(?module $module): self
     {
         $this->module = $module;
