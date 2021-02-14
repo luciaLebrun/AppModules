@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Functionnal\Repository;
+namespace App\Tests\Unit\Repository;
 
 use App\Entity\Semaine;
 use Doctrine\ORM\EntityManager;

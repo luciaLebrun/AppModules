@@ -7,7 +7,7 @@
 * [Combinaison Type de société/Rôle](#combinaison-type-de-socitrle)
 * [Groupement](#groupement)
 
-## Type de société
+## Types de société
 
 * Administrateur
 * Professeur
@@ -21,7 +21,7 @@
 * Intervenant
 * Etudiant (optionnel)
 
-## Combinaison Type de société/Rôle
+## Combinaison Types de société/Rôle
 
 * Administrateur
     * DDE
