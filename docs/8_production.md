@@ -1,12 +1,6 @@
 # Mise en production
 
-[1. Importer le code sur l'hébergeur](#Importer le code sur l'hébergeur)
-<br>
-[2. Installer les dépendances](#Installer les dépendances)
-<br>
-[3. Mise en place des tables](#Mise en place des tables)
-<br>
-[4. Nettoyer le cache](#Nettoyer le cache)
+[Retour au sommaire](index.md)
 
 ## Importer le code sur l'hébergeur
 
@@ -18,9 +12,23 @@ Il est possible de copier les fichiers manuellement vie FTP/SCP.
 
 ## Installer les dépendances
 
+```
+composer install --no-dev --optimize-autoloader
+```
+
 ## Mise en place des tables
 
+Il est possible d'exécuter les migrations pour avoir une application qui contient des données.
+
+```
+php bin/console doctrine:migrations:migrate
+```
+
 ## Nettoyer le cache
+
+```
+APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+```
 
 ## Besoin d'aide ?
 * https://symfony.com/doc/current/deployment.html

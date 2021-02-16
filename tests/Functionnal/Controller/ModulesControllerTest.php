@@ -14,7 +14,7 @@ class ModulesControllerTest extends WebTestCase
     /**
      * Test de la route import_modules
      */
-    public function testRouteImportModuless()
+    public function testRouteImportModules()
     {
         $client = static::createClient();
 
