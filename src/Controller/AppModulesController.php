@@ -64,7 +64,6 @@ class AppModulesController extends AbstractController
                 $semesterLastDay = new DateTime("2020-06-22");
                 break;
         }
-
         $semesterFirstWeek = $semesterFirstDay->format("W");
         $semesterLastWeek = $semesterLastDay->format("W");
 
@@ -81,25 +80,25 @@ class AppModulesController extends AbstractController
      * @param $ppn
      * @param $semaine
      * @return Response
-     * @Route("/module/{ppn}", name="FicheModule", requirements={"ppn"="M.+"}))
+     * @Route("/module/{ppn}", name="module", requirements={"ppn"="M[0-9]{4}"}))
      */
-    public function FicheModule($ppn): Response
+    public function FicheModule(string $ppn): Response
     {
         $moduleRepo = $this->getDoctrine()->getRepository(Module::class);
         $module = $moduleRepo->findOneBy(['PPN' => $ppn]);
 
         $enseignantRepo = $this->getDoctrine()->getRepository(Enseignant::class);
-        $responsablesModule = $module->getResponsables();
-        $responsables = [];
+        $responsables = $module->getResponsables();
+        $moduleResponsables = [];
         $i = 0;
-        foreach ($responsablesModule as $responsableModule)
+        foreach ($responsables as $responsable)
         {
-            $responsables[$i] = $enseignantRepo->find($responsableModule);
+            $moduleResponsables[$i] = $enseignantRepo->find($responsable);
             $i++;
         }
 
         $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
-        $moduleWeeks=$weekRepo->findEachWeekOfAModule($ppn);
+        $moduleWeeks=$weekRepo->findBy(['module' => $module]);
 
         // TODO: Get the school calendar instead of the switch
         $semesterFirstDay = ""; $semesterLastDay = "";
@@ -124,7 +123,7 @@ class AppModulesController extends AbstractController
 
         return $this->render('AppModules/FicheModule.html.twig', [
             'module'=> $module,
-            'responsables'=>$responsables,
+            'moduleResponsables'=>$moduleResponsables,
             'moduleWeeks'=>$moduleWeeks,
             'semesterFirstWeek'=>$semesterFirstWeek,
             'semesterLastWeek'=>$semesterLastWeek,
