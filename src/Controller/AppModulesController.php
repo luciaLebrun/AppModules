@@ -28,13 +28,23 @@ class AppModulesController extends AbstractController
     /**
      * @param int $semester
      * @return Response
-     * @Route("/semestre/{semester<\d+>}", name="semestre")
+     * @Route("/semestre/{semester<[1-5]>}", name="semestre")
      */
     public function MaquetteEnseignement(int $semester): Response
     {
-        $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
+        $moduleRepo=$this->getDoctrine()->getRepository(Module::class);
+        $semesterModules=$moduleRepo->findEachModuleOfASemester($semester);
 
-        $semesterWeeks=$weekRepo->findEachWeekOfASemester($semester);
+        $semesterWeeks=[];
+        for($i=1; $i<=2; $i++)
+        {
+            $UE = "UE".$i;
+            foreach ($semesterModules[$UE] as $module)
+            {
+                $semaineRepo=$this->getDoctrine()->getRepository(Semaine::class);
+                $semesterWeeks[$UE][$module['PPN']]=$semaineRepo->findBy(['module' => $module]);
+            }
+        }
 
         // TODO: Get the school calendar instead of the switch
         $semesterFirstDay = ""; $semesterLastDay = "";
@@ -60,6 +70,7 @@ class AppModulesController extends AbstractController
 
         return $this->render('AppModules/MaquetteEnseignement.html.twig', [
             'semesterNumber'=>$semester,
+            'semesterModules'=>$semesterModules,
             'semesterWeeks'=>$semesterWeeks,
             'semesterFirstWeek'=>$semesterFirstWeek,
             'semesterLastWeek'=>$semesterLastWeek,
@@ -86,14 +97,37 @@ class AppModulesController extends AbstractController
             $responsables[$i] = $enseignantRepo->find($responsableModule);
             $i++;
         }
-        $moduledetailsrepo = $this->getDoctrine()->getRepository(ModuleDetails::class);
-        $moduledetails = $moduledetailsrepo->findAll();
+
+        $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
+        $moduleWeeks=$weekRepo->findEachWeekOfAModule($ppn);
+
+        // TODO: Get the school calendar instead of the switch
+        $semesterFirstDay = ""; $semesterLastDay = "";
+        switch ($ppn[1]){
+            case 1 :
+            case 3 :
+                $semesterFirstDay = new DateTime("2019-09-02");
+                $semesterLastDay = new DateTime("2020-01-26");
+                break;
+            case 2 :
+            case 4 :
+                $semesterFirstDay = new DateTime("2020-01-27");
+                $semesterLastDay = new DateTime("2020-06-22");
+                break;
+            case 5 :
+                $semesterFirstDay = new DateTime("2019-09-02");
+                $semesterLastDay = new DateTime("2020-06-22");
+                break;
+        }
+        $semesterFirstWeek = $semesterFirstDay->format("W");
+        $semesterLastWeek = $semesterLastDay->format("W");
 
         return $this->render('AppModules/FicheModule.html.twig', [
-
             'module'=> $module,
             'responsables'=>$responsables,
-            'detailsmodule'=>$moduledetails,
+            'moduleWeeks'=>$moduleWeeks,
+            'semesterFirstWeek'=>$semesterFirstWeek,
+            'semesterLastWeek'=>$semesterLastWeek,
         ]);
     }
 }
