@@ -80,7 +80,7 @@ class AppModulesController extends AbstractController
      * @param $ppn
      * @param $semaine
      * @return Response
-     * @Route("/module/{ppn}", name="module", requirements={"ppn"="M[0-9]{4}"}))
+     * @Route("/module/{ppn}", name="module", requirements={"ppn"="M([1-2]{2}[0-9]{2})|([3-4][1-3][0-9]{2}(PEC|PEL)*)|(50[0-9]{2}(DMO|DFS)*)"})
      */
     public function FicheModule(string $ppn): Response
     {
@@ -99,6 +99,10 @@ class AppModulesController extends AbstractController
 
         $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
         $moduleWeeks=$weekRepo->findBy(['module' => $module]);
+
+        $detailsRepo=$this->getDoctrine()->getRepository(ModuleDetails::class);
+        $detailsModule=$detailsRepo->findBy(['module'=>$module]);
+        dd($detailsModule);
 
         // TODO: Get the school calendar instead of the switch
         $semesterFirstDay = ""; $semesterLastDay = "";

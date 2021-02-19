@@ -20,31 +20,29 @@ class ModuleDetails
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Semaine::class, inversedBy="moduleDetails")
-     */
-    private $semaine;
-
-    /**
      * @ORM\Column(type="integer")
      */
-    private $nbGroupe;
+    private $nbGroupes;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=2)
      */
-    private $typeCour;
+    private $typeCours;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Enseignant::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Module::class, inversedBy="details")
      */
-    private $trigramme;
+    private $module;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Module::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Enseignant::class, inversedBy="interventions")
      */
-    private $PPN;
+    private $enseignant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Semaine::class)
+     */
+    private $semaine;
 
 
     public function __construct()
@@ -58,94 +56,62 @@ class ModuleDetails
         return $this->id;
     }
 
-    /**
-     * @return Collection|Semaine[]
-     */
-    public function getSemaine(): Collection
+    public function getNbGroupes(): ?int
+    {
+        return $this->nbGroupes;
+    }
+
+    public function setNbGroupes(int $nbGroupes): self
+    {
+        $this->nbGroupes = $nbGroupes;
+
+        return $this;
+    }
+
+    public function getTypeCours(): ?string
+    {
+        return $this->typeCours;
+    }
+
+    public function setTypeCours(string $typeCours): self
+    {
+        $this->typeCours = $typeCours;
+
+        return $this;
+    }
+
+    public function getModule(): ?Module
+    {
+        return $this->module;
+    }
+
+    public function setModule(?Module $module): self
+    {
+        $this->module = $module;
+
+        return $this;
+    }
+
+    public function getEnseignant(): ?Enseignant
+    {
+        return $this->enseignant;
+    }
+
+    public function setEnseignant(?Enseignant $enseignant): self
+    {
+        $this->enseignant = $enseignant;
+
+        return $this;
+    }
+
+    public function getSemaine(): ?Semaine
     {
         return $this->semaine;
     }
 
-    public function addSemaine(Semaine $semaine): self
+    public function setSemaine(?Semaine $semaine): self
     {
-        if (!$this->semaine->contains($semaine)) {
-            $this->semaine[] = $semaine;
-        }
-
-        return $this;
-    }
-
-    public function removeSemaine(Semaine $semaine): self
-    {
-        $this->semaine->removeElement($semaine);
-
-        return $this;
-    }
-
-
-    public function getNbGroupe(): ?int
-    {
-        return $this->nbGroupe;
-    }
-
-    public function setNbGroupe(int $nbGroupe): self
-    {
-        $this->nbGroupe = $nbGroupe;
-
-        return $this;
-    }
-
-    public function getTypeCour(): ?string
-    {
-        return $this->typeCour;
-    }
-
-    public function setTypeCour(string $typeCour): self
-    {
-        $this->typeCour = $typeCour;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Enseignant[]
-     */
-    public function getTrigramme(): Collection
-    {
-        return $this->trigramme;
-    }
-
-    public function addTrigramme(Enseignant $trigramme): self
-    {
-        if (!$this->trigramme->contains($trigramme)) {
-            $this->trigramme[] = $trigramme;
-        }
-
-        return $this;
-    }
-
-    public function removeTrigramme(Enseignant $trigramme): self
-    {
-        $this->trigramme->removeElement($trigramme);
-
-        return $this;
-    }
-
-    public function setTrigramme(?Enseignant $trigramme): self
-    {
-        $this->trigramme = $trigramme;
-
-        return $this;
-    }
-
-    public function getPPN(): ?Module
-    {
-        return $this->PPN;
-    }
-
-    public function setPPN(?Module $PPN): self
-    {
-        $this->PPN = $PPN;
+        $this->semaine = $semaine;
 
         return $this;
     }
