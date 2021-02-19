@@ -34,6 +34,7 @@ class ModuleRepository extends ServiceEntityRepository
                 ->groupBy('m.id')
                 ->addGroupBy('m.PPN')
                 ->addGroupBy('m.intitule')
+                ->orderBy('m.PPN')
                 ->setParameter('UE', $UE)
                 ->getQuery();
             $result = $query->getResult();
