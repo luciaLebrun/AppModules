@@ -33,7 +33,7 @@ class ModulesController extends AbstractController
     public function import(Request $request, FileUploader $fileUploader, KernelInterface $kernel): Response
     {
         $file = new CSVFile();
-        $name = "module";
+        $name = "modules";
         $form = $this->createForm(CSVFileType::class, [$file,$name]);
         $form->handleRequest($request);
 
