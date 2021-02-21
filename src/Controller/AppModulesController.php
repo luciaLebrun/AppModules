@@ -87,7 +87,11 @@ class AppModulesController extends AbstractController
         $moduleRepo = $this->getDoctrine()->getRepository(Module::class);
         $module = $moduleRepo->findOneBy(['PPN' => $ppn]);
 
+        $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
+        $moduleWeeks=$weekRepo->findBy(['module' => $module]);
+
         $enseignantRepo = $this->getDoctrine()->getRepository(Enseignant::class);
+
         $responsables = $module->getResponsables();
         $moduleResponsables = [];
         $i = 0;
@@ -97,12 +101,23 @@ class AppModulesController extends AbstractController
             $i++;
         }
 
-        $weekRepo=$this->getDoctrine()->getRepository(Semaine::class);
-        $moduleWeeks=$weekRepo->findBy(['module' => $module]);
+        $moduleTeachers = $enseignantRepo->findTeachersOfAModule($module);
 
         $detailsRepo=$this->getDoctrine()->getRepository(ModuleDetails::class);
-        $detailsModule=$detailsRepo->findBy(['module'=>$module]);
-        dd($detailsModule);
+        $moduleDetails=[];
+        foreach ($moduleTeachers['CM'] as $teacher)
+        {
+            $moduleDetails['CM'][$teacher['trigramme']]=$detailsRepo->findBy(['module'=>$module, 'enseignant'=>$teacher, 'typeCours'=>'CM']);
+        }
+        foreach ($moduleTeachers['TD'] as $teacher)
+        {
+            $moduleDetails['TD'][$teacher['trigramme']]=$detailsRepo->findBy(['module'=>$module, 'enseignant'=>$teacher, 'typeCours'=>'TD']);
+        }
+        foreach ($moduleTeachers['TP'] as $teacher)
+        {
+            $moduleDetails['TP'][$teacher['trigramme']]=$detailsRepo->findBy(['module'=>$module, 'enseignant'=>$teacher, 'typeCours'=>'TP']);
+        }
+        //dd($moduleDetails);
 
         // TODO: Get the school calendar instead of the switch
         $semesterFirstDay = ""; $semesterLastDay = "";
@@ -128,7 +143,9 @@ class AppModulesController extends AbstractController
         return $this->render('AppModules/FicheModule.html.twig', [
             'module'=> $module,
             'moduleResponsables'=>$moduleResponsables,
+            'moduleTeachers'=>$moduleTeachers,
             'moduleWeeks'=>$moduleWeeks,
+            'moduleDetails'=>$moduleDetails,
             'semesterFirstWeek'=>$semesterFirstWeek,
             'semesterLastWeek'=>$semesterLastWeek,
         ]);

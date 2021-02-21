@@ -59,25 +59,25 @@
                     <div class="tab-pane fade" id="UE{{ semesterNumber }}{{ UENumber }}">
                         {% if semesterWeeks is defined and semesterWeeks is not empty and semesterWeeks['UE'~UENumber] is defined and semesterWeeks['UE'~UENumber] is not empty %}
                             <div class="row justify-content-center mx-0">
-                                <table class="table table-striped text-center border-left border-right border-bottom">
+                                <table class="table table-striped text-center border-left border-right border-bottom ">
                                     <thead>
                                     <tr>
-                                        <th scope="colgroup" rowspan="3" class="border-left border-right border-light"></th>
+                                        <th scope="colgroup" rowspan="3" class="border-left border-right "></th>
                                         {% for module in semesterModules['UE'~UENumber] %}
-                                            <th scope="colgroup" colspan="4" class="border-bottom-0 border-light text-center pb-0"><a href="{{ path('module', {'ppn': (module.PPN|split(' ', 2)[0])}) }}" title="{{ module.intitule|split(' ', 2)[1] }}">{{ module.intitule|split(' ', 2)[0] }}</a></th>
+                                            <th scope="colgroup" colspan="4" class="border-bottom-0  text-center pb-0"><a href="{{ path('module', {'ppn': (module.PPN|split(' ', 2)[0])}) }}" title="{{ module.intitule|split(' ', 2)[1] }}">{{ module.intitule|split(' ', 2)[0] }}</a></th>
                                         {% endfor %}
                                     </tr>
                                     <tr>
                                         {% for module in semesterModules['UE'~UENumber] %}
-                                            <th scope="colgroup" colspan="4" class="border-top-0 border-light text-center pt-0">{{ module.responsables }}</th>
+                                            <th scope="colgroup" colspan="4" class="border-top-0  text-center pt-0">{{ module.responsables }}</th>
                                         {% endfor %}
                                     </tr>
                                     <tr>
                                         {% for module in semesterModules['UE'~UENumber] %}
-                                            <th scope="col" class="border-left border-light">CM</th>
-                                            <th scope="col" class="border-light">TD</th>
-                                            <th scope="col" class="border-light">TP</th>
-                                            <th scope="col" class="border-right border-light">EV</th>
+                                            <th scope="col" class="border-left ">CM</th>
+                                            <th scope="col" class="">TD</th>
+                                            <th scope="col" class="">TP</th>
+                                            <th scope="col" class="border-right ">EV</th>
                                         {% endfor %}
                                     </tr>
                                     </thead>
@@ -91,33 +91,33 @@
                                                     {% for semaine in semesterWeeks['UE'~UENumber][module.PPN] %}
                                                         {% if semaine.semaine == s %}
                                                             {% if semaine.CM != 0 %}
-                                                                <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                                <td scope="row" class="border-left ">{{ semaine.CM }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-left border-light"></td>
+                                                                <td scope="row" class="border-left "></td>
                                                             {% endif %}
                                                             {% if semaine.TD != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                                <td scope="row" class="">{{ semaine.TD }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.TP != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TP }}</td>
+                                                                <td scope="row" class="">{{ semaine.TP }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.surveillances != 0 %}
-                                                                <td scope="row" class="border-right border-light">{{ semaine.surveillances }}</td>
+                                                                <td scope="row" class="border-right ">{{ semaine.surveillances }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-right border-light"></td>
+                                                                <td scope="row" class="border-right "></td>
                                                             {% endif %}
                                                             {% set semaineExist = 1 %}
                                                         {% endif %}
                                                     {% endfor %}
                                                     {% if semaineExist == 0 %}
-                                                        <td scope="row" class="border-left border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-right border-light"></td>
+                                                        <td scope="row" class="border-left "></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class="border-right "></td>
                                                     {% endif %}
                                                 {% endfor %}
                                             </tr>
@@ -130,33 +130,33 @@
                                                     {% for semaine in semesterWeeks['UE'~UENumber][module.PPN] %}
                                                         {% if semaine.semaine == s %}
                                                             {% if semaine.CM != 0 %}
-                                                                <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                                <td scope="row" class="border-left ">{{ semaine.CM }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-left border-light"></td>
+                                                                <td scope="row" class="border-left "></td>
                                                             {% endif %}
                                                             {% if semaine.TD != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                                <td scope="row" class="">{{ semaine.TD }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.TP != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TP }}</td>
+                                                                <td scope="row" class="">{{ semaine.TP }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.surveillances != 0 %}
-                                                                <td scope="row" class="border-right border-light">{{ semaine.surveillances }}</td>
+                                                                <td scope="row" class="border-right ">{{ semaine.surveillances }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-right border-light"></td>
+                                                                <td scope="row" class="border-right "></td>
                                                             {% endif %}
                                                             {% set semaineExist = 1 %}
                                                         {% endif %}
                                                     {% endfor %}
                                                     {% if semaineExist == 0 %}
-                                                        <td scope="row" class="border-left border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-right border-light"></td>
+                                                        <td scope="row" class="border-left "></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class="border-right "></td>
                                                     {% endif %}
                                                 {% endfor %}
                                             </tr>
@@ -170,33 +170,33 @@
                                                     {% for semaine in semesterWeeks['UE'~UENumber][module.PPN] %}
                                                         {% if semaine.semaine == s %}
                                                             {% if semaine.CM != 0 %}
-                                                                <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                                <td scope="row" class="border-left ">{{ semaine.CM }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-left border-light"></td>
+                                                                <td scope="row" class="border-left "></td>
                                                             {% endif %}
                                                             {% if semaine.TD != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                                <td scope="row" class="">{{ semaine.TD }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.TP != 0 %}
-                                                                <td scope="row" class="border-light">{{ semaine.TP }}</td>
+                                                                <td scope="row" class="">{{ semaine.TP }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-light"></td>
+                                                                <td scope="row" class=""></td>
                                                             {% endif %}
                                                             {% if semaine.surveillances != 0 %}
-                                                                <td scope="row" class="border-right border-light">{{ semaine.surveillances }}</td>
+                                                                <td scope="row" class="border-right ">{{ semaine.surveillances }}</td>
                                                             {% else %}
-                                                                <td scope="row" class="border-right border-light"></td>
+                                                                <td scope="row" class="border-right "></td>
                                                             {% endif %}
                                                             {% set semaineExist = 1 %}
                                                         {% endif %}
                                                     {% endfor %}
                                                     {% if semaineExist == 0 %}
-                                                        <td scope="row" class="border-left border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-light"></td>
-                                                        <td scope="row" class="border-right border-light"></td>
+                                                        <td scope="row" class="border-left "></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class=""></td>
+                                                        <td scope="row" class="border-right "></td>
                                                     {% endif %}
                                                 {% endfor %}
                                             </tr>

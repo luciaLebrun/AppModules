@@ -27,18 +27,21 @@
             <div class="tab-pane fade active show" id="Organisation">
                 {% if moduleWeeks is defined and moduleWeeks is not empty %}
                     <div class="row justify-content-center mx-0">
-                        <table class="table table-striped text-center border-left border-right border-bottom">
+                        <table class="table table-striped text-center border-left border-right border-bottom ">
                             <thead>
                                 <tr>
-                                    <th scope="col" rowspan="2" class="border-light"></th>
-                                    <th scope="col" class="border-left border-light">CM</th>
-                                    <th scope="col" class="border-light">TD</th>
-                                    <th scope="col" class="border-right border-light">TP</th>
+                                    <th scope="col" rowspan="2" class=""></th>
+                                    <th scope="col" colspan="{{ moduleTeachers.CM|length + 1 }}" class="border-left border-right ">CM</th>
+                                    <th scope="col" colspan="{{ moduleTeachers.TD|length + 1 }}" class="border-left border-right ">TD</th>
+                                    <th scope="col" colspan="{{ moduleTeachers.TP|length + 1 }}" class="border-left border-right ">TP</th>
                                 </tr>
                                 <tr>
-                                    <th scope="col" class="border-left border-light">h</th>
-                                    <th scope="col" class="border-light">h</th>
-                                    <th scope="col" class="border-right border-light">h</th>
+                                    {% for typeCours in moduleTeachers %}
+                                        <th scope="col" class="border-left border-right text-warning">h</th>
+                                        {% for enseignant in typeCours %}
+                                            <th scope="col" class=""><span title="{{ enseignant.prenom }} {{ enseignant.nom }}">{{ enseignant.trigramme }}</span></th>
+                                        {% endfor %}
+                                    {% endfor %}
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,27 +53,75 @@
                                         {% for semaine in moduleWeeks %}
                                             {% if semaine.semaine == s %}
                                                 {% if semaine.CM != 0 %}
-                                                    <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.CM }}</td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['CM'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-left border-light"></td>
+                                                    <td scope="row" class="border-left border-right "></td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TD != 0 %}
-                                                    <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TD }}</td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TD'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TP != 0 %}
-                                                    <td scope="row" class="border-right border-light">{{ semaine.TP }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TP }}</td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TP'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-right border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% set semaineExist = 1 %}
                                             {% endif %}
                                         {% endfor %}
                                         {% if semaineExist == 0 %}
-                                            <td scope="row" class="border-left border-light"></td>
-                                            <td scope="row" class="border-light"></td>
-                                            <td scope="row" class="border-right border-light"></td>
+                                            {% for typeCours in moduleTeachers %}
+                                                <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                {% for enseignant in typeCours %}
+                                                    <td scope="row" class=""></td>
+                                                {% endfor %}
+                                            {% endfor %}
                                         {% endif %}
                                     </tr>
                                 {% endfor %}
@@ -81,27 +132,75 @@
                                         {% for semaine in moduleWeeks %}
                                             {% if semaine.semaine == s %}
                                                 {% if semaine.CM != 0 %}
-                                                    <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.CM }}</td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['CM'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-left border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TD != 0 %}
-                                                    <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TD }}</td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TD'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TP != 0 %}
-                                                    <td scope="row" class="border-right border-light">{{ semaine.TP }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TP }}</td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TP'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-right border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% set semaineExist = 1 %}
                                             {% endif %}
                                         {% endfor %}
                                         {% if semaineExist == 0 %}
-                                            <td scope="row" class="border-left border-light"></td>
-                                            <td scope="row" class="border-light"></td>
-                                            <td scope="row" class="border-right border-light"></td>
+                                            {% for typeCours in moduleTeachers %}
+                                                <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                {% for enseignant in typeCours %}
+                                                    <td scope="row" class=""></td>
+                                                {% endfor %}
+                                            {% endfor %}
                                         {% endif %}
                                     </tr>
                                 {% endfor %}
@@ -113,27 +212,75 @@
                                         {% for semaine in moduleWeeks %}
                                             {% if semaine.semaine == s %}
                                                 {% if semaine.CM != 0 %}
-                                                    <td scope="row" class="border-left border-light">{{ semaine.CM }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.CM }}</td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['CM'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-left border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.CM %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TD != 0 %}
-                                                    <td scope="row" class="border-light">{{ semaine.TD }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TD }}</td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TD'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TD %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% if semaine.TP != 0 %}
-                                                    <td scope="row" class="border-right border-light">{{ semaine.TP }}</td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold">{{ semaine.TP }}</td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        {% set semaineDetailsExist = 0 %}
+                                                        {% for semaineDetails in moduleDetails['TP'][enseignant.trigramme] %}
+                                                            {% if semaineDetails.semaine.semaine == s %}
+                                                                <td scope="row" class="">{{ semaineDetails.nbGroupes }}</td>
+                                                                {% set semaineDetailsExist = 1 %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if semaineDetailsExist == 0 %}
+                                                            <td scope="row" class=""></td>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 {% else %}
-                                                    <td scope="row" class="border-right border-light"></td>
+                                                    <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                    {% for enseignant in moduleTeachers.TP %}
+                                                        <td scope="row" class=""></td>
+                                                    {% endfor %}
                                                 {% endif %}
                                                 {% set semaineExist = 1 %}
                                             {% endif %}
                                         {% endfor %}
                                         {% if semaineExist == 0 %}
-                                            <td scope="row" class="border-left border-light"></td>
-                                            <td scope="row" class="border-light"></td>
-                                            <td scope="row" class="border-right border-light"></td>
+                                            {% for typeCours in moduleTeachers %}
+                                                <td scope="row" class="border-left border-right text-warning font-weight-bold"></td>
+                                                {% for enseignant in typeCours %}
+                                                    <td scope="row" class=""></td>
+                                                {% endfor %}
+                                            {% endfor %}
                                         {% endif %}
                                     </tr>
                                 {% endfor %}
