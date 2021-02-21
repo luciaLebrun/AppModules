@@ -6,5 +6,5 @@ namespace App\Domain;
 
 interface FicheModule
 {
-    public function findResponsableFromModule($module):iterable;
+    public function findTeachersOfAModule($module):iterable;
 }

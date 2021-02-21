@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Repository;
 
 use App\Entity\Module;
 use Doctrine\ORM\EntityManager;
@@ -22,8 +22,8 @@ class ModuleRepositoryTest extends KernelTestCase
             ->getManager();
     }
 
-    public function testFindEachModuleOfASemester(){
-        $semester = $this->entityManager->getRepository(Module::class)->findEachModuleOfASemester(2);
+    public function testFindModulesOfASemester(){
+        $semester = $this->entityManager->getRepository(Module::class)->findModulesOfASemester(2);
 
         // Test 1 : the right number of elements are returned
         $this->assertCount(2, $semester);

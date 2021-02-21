@@ -4,6 +4,7 @@
 namespace App\Repository;
 
 
+use App\Domain\FicheModule;
 use App\Entity\Enseignant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,7 +13,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * Class EnseignantRepository
  * @package App\Repository
  */
-class EnseignantRepository extends ServiceEntityRepository
+class EnseignantRepository extends ServiceEntityRepository implements FicheModule
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -71,7 +72,7 @@ class EnseignantRepository extends ServiceEntityRepository
             ->addGroupBy('e.trigramme')
             ->addGroupBy('e.nom')
             ->addGroupBy('e.prenom')
-            ->orderBy('e.id')
+            ->orderBy('e.trigramme')
             ->setParameter('module', $module)
             ->getQuery();
         $teachers['TP'] = $query->getResult();

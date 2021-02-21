@@ -20,7 +20,7 @@ class ModuleRepository extends ServiceEntityRepository implements MaquetteEnseig
         parent::__construct($registry, Module::class);
     }
 
-    public function findEachModuleOfASemester($semester): iterable
+    public function findModulesOfASemester($semester): iterable
     {
         $sem = array();
         for($i = 1; $i <= 2; $i++){

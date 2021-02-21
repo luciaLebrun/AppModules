@@ -33,7 +33,7 @@ class AppModulesController extends AbstractController
     public function MaquetteEnseignement(int $semester): Response
     {
         $moduleRepo=$this->getDoctrine()->getRepository(Module::class);
-        $semesterModules=$moduleRepo->findEachModuleOfASemester($semester);
+        $semesterModules=$moduleRepo->findModulesOfASemester($semester);
 
         $semesterWeeks=[];
         for($i=1; $i<=2; $i++)
@@ -117,7 +117,6 @@ class AppModulesController extends AbstractController
         {
             $moduleDetails['TP'][$teacher['trigramme']]=$detailsRepo->findBy(['module'=>$module, 'enseignant'=>$teacher, 'typeCours'=>'TP']);
         }
-        //dd($moduleDetails);
 
         // TODO: Get the school calendar instead of the switch
         $semesterFirstDay = ""; $semesterLastDay = "";
