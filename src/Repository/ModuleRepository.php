@@ -20,11 +20,27 @@ class ModuleRepository extends ServiceEntityRepository implements MaquetteEnseig
         parent::__construct($registry, Module::class);
     }
 
+    public function findUEsOfASemester($semester): iterable
+    {
+        $semester = "M".$semester."%";
+        $query=$this->createQueryBuilder('m')
+            ->select('SUBSTRING(m.PPN, 3, 1) as UENumber')
+            ->where('m.PPN LIKE :semester')
+            ->distinct(true)
+            ->setParameter('semester', $semester)
+            ->getQuery();
+        $result = $query->getResult();
+        return $result;
+    }
+
     public function findModulesOfASemester($semester): iterable
     {
         $sem = array();
-        for($i = 1; $i <= 2; $i++){
-            $UE = "M".$semester.$i."%";
+        $UEs = $this->findUEsOfASemester($semester);
+        foreach($UEs as $UE)
+        {
+            $UENumber = $UE['UENumber'];
+            $UE = "M".$semester.$UENumber."%";
             $query=$this->createQueryBuilder('m')
                 ->select('m.id as id')
                 ->addselect('m.PPN as PPN')
@@ -39,7 +55,7 @@ class ModuleRepository extends ServiceEntityRepository implements MaquetteEnseig
                 ->setParameter('UE', $UE)
                 ->getQuery();
             $result = $query->getResult();
-            $sem['UE'.$i]=$result;
+            $sem['UE'.$UENumber]=$result;
         }
         return $sem;
     }
