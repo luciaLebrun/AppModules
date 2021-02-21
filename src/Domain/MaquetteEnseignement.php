@@ -6,5 +6,5 @@ namespace App\Domain;
 
 interface MaquetteEnseignement
 {
-    public function findEachWeekOfASemester($semester):iterable;
+    public function findModulesOfASemester($semester):iterable;
 }
