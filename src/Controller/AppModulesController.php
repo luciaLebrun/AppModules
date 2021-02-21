@@ -36,14 +36,15 @@ class AppModulesController extends AbstractController
         $semesterModules=$moduleRepo->findModulesOfASemester($semester);
 
         $semesterWeeks=[];
-        for($i=1; $i<=2; $i++)
-        {
-            $UE = "UE".$i;
-            foreach ($semesterModules[$UE] as $module)
+
+        while ($UEModule = current($semesterModules)) {
+            $UE = key($semesterModules);
+            foreach ($UEModule as $module)
             {
                 $semaineRepo=$this->getDoctrine()->getRepository(Semaine::class);
                 $semesterWeeks[$UE][$module['PPN']]=$semaineRepo->findBy(['module' => $module]);
             }
+            next($semesterModules);
         }
 
         // TODO: Get the school calendar instead of the switch
