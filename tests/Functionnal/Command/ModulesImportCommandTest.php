@@ -1,11 +1,10 @@
 <?php
 
 
-namespace App\Tests\Command;
+namespace App\Tests\Functionnal\Command;
 
-
-use App\Repository\EnseignantRepository;
-use App\Request\Command\EnseignantImportCommand;
+use App\Repository\ModuleRepository;
+use App\Request\Command\ModulesImportCommand;
 use Doctrine\ORM\EntityManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
@@ -13,12 +12,13 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * Class EnseignantImportCommandTest
+ * Class ModulesImportCommandTest
  * @package App\Tests\Command
  */
-class EnseignantImportCommandTest extends TestCase
+class ModulesImportCommandTest extends TestCase
 {
-    /** @var EnseignantRepository*/
+
+    /** @var ModuleRepository*/
     private $customerEntityManagerMock;
     /** @var CommandTester */
     private $commandTester;
@@ -30,8 +30,8 @@ class EnseignantImportCommandTest extends TestCase
             ->getMock();
 
         $application = new Application();
-        $application->add(new EnseignantImportCommand($this->customerEntityManagerMock));
-        $command = $application->find('csv:import:enseignants');
+        $application->add(new ModulesImportCommand($this->customerEntityManagerMock));
+        $command = $application->find('csv:import:modules');
         $this->commandTester = new CommandTester($command);
     }
 
@@ -43,8 +43,9 @@ class EnseignantImportCommandTest extends TestCase
 
     public function testExecute()
     {
-        $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/enseignants.csv',"w");
-        fwrite($myfile, "trigramme ; Prénom Nom ; service dû ; statut ; contact");
+        // TODO Modif le chemin d'accès par rapport au test
+        $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/modules.csv',"w");
+        fwrite($myfile, "module(PPN) ; module(GPU) intitulé");
         fclose($myfile);
         $this->commandTester->execute([]);
         $this->assertEquals(Command::SUCCESS, $this->commandTester->getStatusCode());

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Controller;
+namespace App\Tests\Functionnal\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -23,7 +23,7 @@ class AppModulesControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/AppModules/semestre/2');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
 
         // Test 1 : the agenda section gives a week-by-week schedule of the first semester
         $this->assertSelectorTextContains('table > tbody > tr:first-of-type > th', 'S5');
@@ -46,14 +46,14 @@ class AppModulesControllerTest extends WebTestCase
         // Test 5 : it is possible to consult other agenda
         $link = $crawler->filter('a:contains("Semestre")')->eq(0)->link();
         $crawler = $client->click($link);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
     }
 
     public function testFicheModule()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/AppModules/module/M1101');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
 
         // Test 1 : le planning de l'agenda est sur la période du semestre
         $this->assertSelectorTextContains('table > tbody > tr:first-of-type > th', 'S36');

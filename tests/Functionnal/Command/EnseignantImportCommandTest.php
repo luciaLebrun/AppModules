@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Tests\Command;
+namespace App\Tests\Functionnal\Command;
 
-use App\Repository\ModuleRepository;
-use App\Request\Command\ModulesImportCommand;
+
+use App\Repository\EnseignantRepository;
+use App\Request\Command\EnseignantImportCommand;
 use Doctrine\ORM\EntityManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
@@ -12,13 +13,12 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
- * Class ModulesImportCommandTest
+ * Class EnseignantImportCommandTest
  * @package App\Tests\Command
  */
-class ModulesImportCommandTest extends TestCase
+class EnseignantImportCommandTest extends TestCase
 {
-
-    /** @var ModuleRepository*/
+    /** @var EnseignantRepository*/
     private $customerEntityManagerMock;
     /** @var CommandTester */
     private $commandTester;
@@ -30,8 +30,8 @@ class ModulesImportCommandTest extends TestCase
             ->getMock();
 
         $application = new Application();
-        $application->add(new ModulesImportCommand($this->customerEntityManagerMock));
-        $command = $application->find('csv:import:modules');
+        $application->add(new EnseignantImportCommand($this->customerEntityManagerMock));
+        $command = $application->find('csv:import:enseignants');
         $this->commandTester = new CommandTester($command);
     }
 
@@ -43,8 +43,9 @@ class ModulesImportCommandTest extends TestCase
 
     public function testExecute()
     {
-        $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/modules.csv',"w");
-        fwrite($myfile, "module(PPN) ; module(GPU) intitulé");
+        // TODO Modif le chemin d'accès par rapport au test
+        $myfile = fopen('%kernel.project_dir%/../src/Request/CSV/enseignants.csv',"w");
+        fwrite($myfile, "trigramme ; Prénom Nom ; service dû ; statut ; contact");
         fclose($myfile);
         $this->commandTester->execute([]);
         $this->assertEquals(Command::SUCCESS, $this->commandTester->getStatusCode());

@@ -1,25 +1,24 @@
 <?php
 
 
-namespace App\Tests\Controller;
+namespace App\Tests\Functionnal\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ModulesControllerTest
+ * Class EnseignantControllerTest
  * @package App\Tests\Controller
  */
-class ModulesControllerTest extends WebTestCase
+class EnseignantControllerTest extends WebTestCase
 {
-
     /**
-     * Test de la route import_modules
+     * Test de la route import_enseignants
      */
-    public function testRouteImportModuless()
+    public function testRouteImportEnseignants()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/AppModules/import_modules');
+        $client->request('GET', '/AppModules/import_enseignants');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('legend', 'Importer un CSV');

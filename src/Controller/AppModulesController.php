@@ -22,7 +22,7 @@ class AppModulesController extends AbstractController
      */
     public function index(): RedirectResponse
     {
-        return $this->redirectToRoute('semestre',['semester'=>1],301);
+        return $this->redirectToRoute('semestre', ['semester' => 1], 301);
     }
 
     /**
@@ -30,7 +30,7 @@ class AppModulesController extends AbstractController
      * @return Response
      * @Route("/semestre/{semester<[1-5]>}", name="semestre")
      */
-    public function MaquetteEnseignement(int $semester): Response
+    public function maquetteEnseignement(int $semester): Response
     {
         $moduleRepo=$this->getDoctrine()->getRepository(Module::class);
         $semesterModules=$moduleRepo->findModulesOfASemester($semester);
@@ -48,19 +48,20 @@ class AppModulesController extends AbstractController
         }
 
         // TODO: Get the school calendar instead of the switch
-        $semesterFirstDay = ""; $semesterLastDay = "";
-        switch ($semester){
-            case 1 :
-            case 3 :
+        $semesterFirstDay = "";
+        $semesterLastDay = "";
+        switch ($semester) {
+            case 1:
+            case 3:
                 $semesterFirstDay = new DateTime("2019-09-02");
                 $semesterLastDay = new DateTime("2020-01-26");
                 break;
-            case 2 :
-            case 4 :
+            case 2:
+            case 4:
                 $semesterFirstDay = new DateTime("2020-01-27");
                 $semesterLastDay = new DateTime("2020-06-22");
                 break;
-            case 5 :
+            case 5:
                 $semesterFirstDay = new DateTime("2019-09-02");
                 $semesterLastDay = new DateTime("2020-06-22");
                 break;

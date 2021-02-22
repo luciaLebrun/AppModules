@@ -113,7 +113,7 @@ class EnseignantFixtures extends Fixture
         $enseignant->setTrigramme('MRa');
         $enseignant->setPrenom('Mourad');
         $enseignant->setNom('Rabah');
-        $enseignant->setServiceDu( 153.6 );
+        $enseignant->setServiceDu(153.6);
         $enseignant->setStatut('SUP');
         $manager->persist($enseignant);
         $this->addReference("MRa", $enseignant);

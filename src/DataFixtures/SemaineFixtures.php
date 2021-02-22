@@ -326,7 +326,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(46 );
+        $semaine->setSemaine(46);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(0);
@@ -337,7 +337,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(47 );
+        $semaine->setSemaine(47);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -348,7 +348,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(48 );
+        $semaine->setSemaine(48);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -359,7 +359,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(49 );
+        $semaine->setSemaine(49);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -370,7 +370,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(50 );
+        $semaine->setSemaine(50);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -381,7 +381,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(51 );
+        $semaine->setSemaine(51);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -392,7 +392,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(02 );
+        $semaine->setSemaine(02);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -403,7 +403,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1103'));
-        $semaine->setSemaine(03 );
+        $semaine->setSemaine(03);
         $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
@@ -1167,7 +1167,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(0);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1178,27 +1178,27 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(0);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202')); 
+        $semaine->setModule($this->getReference('M1202'));
         $semaine->setSemaine(38);
-        $semaine->setCM(0); 
+        $semaine->setCM(0);
         $semaine->setTD(0);
-        $semaine->setTP(0); 
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1202'));
         $semaine->setSemaine(39);
-        $semaine->setCM(0); 
-        $semaine->setTD(0); 
-        $semaine->setTP(0); 
+        $semaine->setCM(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
@@ -1211,7 +1211,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(2);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1233,18 +1233,18 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1202')); 
+        $semaine->setModule($this->getReference('M1202'));
         $semaine->setSemaine(45);
         $semaine->setCM(1); 
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1255,7 +1255,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1266,7 +1266,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(2);
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1287,7 +1287,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCM(0); 
         $semaine->setTD(2); 
         $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -1343,7 +1343,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('  # TP dÃ©calÃ©s...');
         $manager->persist($semaine);
 
@@ -1351,32 +1351,32 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setModule($this->getReference('M1203')); 
         $semaine->setSemaine(37); 
         $semaine->setCM(1); 
-        $semaine->setTD(2); 
+        $semaine->setTD(2);
         $semaine->setTP(1.5);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203'));
-        $semaine->setSemaine(38); 
+        $semaine->setSemaine(38);
         $semaine->setCM(1);
-        $semaine->setTD(2); 
+        $semaine->setTD(2);
         $semaine->setTP(1.5);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203'));
-        $semaine->setSemaine(39); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
+        $semaine->setSemaine(39);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1398,7 +1398,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1409,14 +1409,14 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1203')); 
         $semaine->setSemaine(45); 
-        $semaine->setCM(0); 
+        $semaine->setCM(0);
         $semaine->setTD(1.5);
         $semaine->setTP(0);
         $semaine->setSurveillances(0);
@@ -1427,7 +1427,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(46);
-        $semaine->setCM(1); 
+        $semaine->setCM(1);
         $semaine->setTD(2);
         $semaine->setTP(2);
         $semaine->setSurveillances(0);
@@ -1436,13 +1436,13 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204')); 
+        $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(49);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
-        $semaine->setTP(2); 
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(2);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1450,18 +1450,18 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(50);
         $semaine->setCM(1);
-        $semaine->setTD(2); 
+        $semaine->setTD(2);
         $semaine->setTP(1.5);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204')); 
+        $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(51);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
+        $semaine->setCM(1);
+        $semaine->setTD(2);
         $semaine->setTP(1.5);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
@@ -1471,19 +1471,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1204'));
         $semaine->setSemaine(02);
-        $semaine->setCM(1); 
+        $semaine->setCM(1);
         $semaine->setTD(2);
-        $semaine->setTP(1.5);
-        $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
-        $semaine->setCommentaires('');
-        $manager->persist($semaine);
-
-        $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(03);
-        $semaine->setCM(1); 
-        $semaine->setTD(2); 
         $semaine->setTP(1.5);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
@@ -1492,12 +1481,23 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1204'));
-        $semaine->setSemaine(48); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
+        $semaine->setSemaine(03);
+        $semaine->setCM(1);
+        $semaine->setTD(2);
+        $semaine->setTP(1.5);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
+        $semaine->setCommentaires('');
+        $manager->persist($semaine);
+
+        $semaine = new Semaine();
+        $semaine->setModule($this->getReference('M1204'));
+        $semaine->setSemaine(48);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
         $semaine->setTP(0);
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1508,7 +1508,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1519,18 +1519,18 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
+        $semaine->setModule($this->getReference('M1205'));
         $semaine->setSemaine(38);
         $semaine->setCM(0); 
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1541,7 +1541,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1552,7 +1552,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1563,7 +1563,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1574,29 +1574,29 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2);
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1205'));
         $semaine->setSemaine(45);
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
+        $semaine->setCM(0);
+        $semaine->setTD(2);
         $semaine->setTP(0);
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
         $semaine = new Semaine();
-        $semaine->setModule($this->getReference('M1205')); 
-        $semaine->setSemaine(46); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setModule($this->getReference('M1205'));
+        $semaine->setSemaine(46);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
+        $semaine->setSurveillances(0);
+        $semaine->setCharges(0);
         $semaine->setCommentaires(' grouper les TD par 2 et les mettre en amphi si possible...');
         $manager->persist($semaine);
 
@@ -1610,12 +1610,12 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
 
         $semaine = new Semaine();
         $semaine->setModule($this->getReference('M1205'));
-        $semaine->setSemaine(48); 
-        $semaine->setCM(0); 
-        $semaine->setTD(2); 
-        $semaine->setTP(0); 
+        $semaine->setSemaine(48);
+        $semaine->setCM(0);
+        $semaine->setTD(2);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1626,7 +1626,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setTD(2); 
         $semaine->setTP(0); 
         $semaine->setSurveillances(0); 
-        $semaine->setCharges(0); 
+        $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
 
@@ -1636,7 +1636,7 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setCM(0); 
         $semaine->setTD(2); 
         $semaine->setTP(0); 
-        $semaine->setSurveillances(0); 
+        $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
         $manager->persist($semaine);
@@ -1854,7 +1854,8 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         $semaine->setModule($this->getReference('M2101'));
         $semaine->setSemaine(05);
         $semaine->setCM(0);
-        $semaine->setTD(0); $semaine->setTP(0);
+        $semaine->setTD(0);
+        $semaine->setTP(0);
         $semaine->setSurveillances(0);
         $semaine->setCharges(0);
         $semaine->setCommentaires('');
@@ -3702,4 +3703,3 @@ class SemaineFixtures extends Fixture implements DependentFixtureInterface
         );
     }
 }
-

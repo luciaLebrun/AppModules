@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Request\Command;
-
 
 use App\Entity\Enseignant;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +31,6 @@ class EnseignantImportCommand extends Command
         $this
             ->setName("csv:import:enseignants")
             ->setDescription("Imports a mock CSV file");
-
     }
 
     /**
@@ -53,17 +50,14 @@ class EnseignantImportCommand extends Command
 
         $results = $reader->fetchAssoc();
 
-        foreach($results as $row)
-        {
-            if(substr($row['trigramme '], 0,1) != '#') // On exclut les commentaires
-            {
-                // On récupère l'enseignant à partie de son trigramme
+        foreach ($results as $row) {
+            if (substr($row['trigramme '], 0, 1) != '#') { // On exclut les commentaires
+            // On récupère l'enseignant à partie de son trigramme
                 $enseignant = $this->entityManager->getRepository(Enseignant::class)->findOneBy(array(
                     'trigramme' => str_replace(' ', '', $row['trigramme '])));
 
                 // Si l'enseignant n'existe pas on le créé
-                if($enseignant == null)
-                {
+                if ($enseignant == null) {
                     $enseignant = new Enseignant();
                 }
 
@@ -74,14 +68,11 @@ class EnseignantImportCommand extends Command
                 $enseignant->setStatut(str_replace(' ', '', $row[' statut ']));
 
                 // Si les contacts ne sont pas nuls
-                if(str_replace(' ', '', $row[' contact']) != NULL)
-                {
+                if (str_replace(' ', '', $row[' contact']) != null) {
                     $enseignant->setContact(str_replace(' ', '', $row[' contact']));
                 }
                 $this->entityManager->persist($enseignant);
-
             }
-
         }
 
         $this->entityManager->flush();
@@ -91,5 +82,4 @@ class EnseignantImportCommand extends Command
         $io->success("L'importation est finie !");
         return Command::SUCCESS;
     }
-
 }

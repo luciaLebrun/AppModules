@@ -1,9 +1,7 @@
 <?php
 
-
 namespace App\Repository;
 
-use App\Domain\MaquetteEnseignement;
 use App\Entity\Semaine;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Repository;
-
 
 use App\Domain\FicheModule;
 use App\Entity\Enseignant;

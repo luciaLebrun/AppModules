@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Entity\CSVFile;
@@ -16,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+
 /**
  * Class ModulesController
  * @package App\Controller
@@ -37,13 +37,11 @@ class ModulesController extends AbstractController
         $form = $this->createForm(CSVFileType::class, [$file,$name]);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $brochureFile */
             $fileCSV = $form->get('csvFile')->getData();
 
-            if ($fileCSV)
-            {
+            if ($fileCSV) {
                 $fileUploader->upload($fileCSV);
             }
             $application = new Application($kernel);
@@ -55,12 +53,11 @@ class ModulesController extends AbstractController
 
             var_dump($output->fetch());
 
-            return $this->redirectToRoute('semestre',['semester'=>1],301);
+            return $this->redirectToRoute('semestre', ['semester' => 1], 301);
         }
 
         return $this->render('Request/UploadModule.html.twig', [
             'form' => $form->createView(),
         ]);
     }
-
 }
