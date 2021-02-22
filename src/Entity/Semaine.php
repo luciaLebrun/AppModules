@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\SemaineRepository;
 
@@ -65,6 +66,16 @@ class Semaine
      * @ORM\JoinColumn(nullable=false)
      */
     private $module;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ModuleDetails::class, mappedBy="semaine")
+     */
+    private $moduleDetails;
+
+    public function __construct()
+    {
+        $this->moduleDetails = new ArrayCollection();
+    }
 
     /**
      * @return int|null
@@ -201,6 +212,33 @@ class Semaine
     public function setModule(?module $module): self
     {
         $this->module = $module;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ModuleDetails[]
+     */
+    public function getModuleDetails(): Collection
+    {
+        return $this->moduleDetails;
+    }
+
+    public function addModuleDetail(ModuleDetails $moduleDetail): self
+    {
+        if (!$this->moduleDetails->contains($moduleDetail)) {
+            $this->moduleDetails[] = $moduleDetail;
+            $moduleDetail->addSemaine($this);
+        }
+
+        return $this;
+    }
+
+    public function removeModuleDetail(ModuleDetails $moduleDetail): self
+    {
+        if ($this->moduleDetails->removeElement($moduleDetail)) {
+            $moduleDetail->removeSemaine($this);
+        }
 
         return $this;
     }

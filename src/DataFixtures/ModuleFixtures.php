@@ -23,7 +23,7 @@ class ModuleFixtures extends Fixture implements DependentFixtureInterface
 
         $module = new Module();
         $module->setPPN('M1102');
-        $module->setIntitule('AP1.1 Introduction à l algorithmique et à la programmation');
+        $module->setIntitule("AP1.1 Introduction à l'algorithmique et à la programmation");
         $module->addResponsable($this->getReference('RC'));
         $module->addResponsable($this->getReference('PCo'));
         $manager->persist($module);
@@ -46,7 +46,7 @@ class ModuleFixtures extends Fixture implements DependentFixtureInterface
 
         $module = new Module();
         $module->setPPN('M1105');
-        $module->setIntitule('CDIN1 Conception de documents et d interfaces numériques');
+        $module->setIntitule("CDIN1 Conception de documents et d'interfaces numériques");
         $module->addResponsable($this->getReference('PCo'));
         $manager->persist($module);
         $this->addReference("M1105", $module);
@@ -112,7 +112,7 @@ class ModuleFixtures extends Fixture implements DependentFixtureInterface
 
         $module = new Module();
         $module->setPPN('M2101');
-        $module->setIntitule('SI2 Architecture et programmation des mécanismes de base d un système informatique');
+        $module->setIntitule("SI2 Architecture et programmation des mécanismes de base d'un système informatique");
         $module->addResponsable($this->getReference('PCo'));
         $manager->persist($module);
         $this->addReference("M2101", $module);

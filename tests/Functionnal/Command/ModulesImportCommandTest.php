@@ -15,7 +15,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  * Class ModulesImportCommandTest
  * @package App\Tests\Command
  */
-class ModulesImportCommandTest
+class ModulesImportCommandTest extends TestCase
 {
 
     /** @var ModuleRepository*/

@@ -67,6 +67,11 @@ class Enseignant
     private $modules;
 
     /**
+     * @ORM\OneToMany(targetEntity=ModuleDetails::class, mappedBy="enseignant")
+     */
+    private $interventions;
+
+    /**
      * @return static
      */
     public static function create(): self
@@ -81,6 +86,7 @@ class Enseignant
     public function __construct()
     {
         $this->modules = new ArrayCollection();
+        $this->interventions = new ArrayCollection();
     }
 
     /**
@@ -204,4 +210,35 @@ class Enseignant
 
         return $this;
     }
+
+    /**
+     * @return Collection|ModuleDetails[]
+     */
+    public function getInterventions(): Collection
+    {
+        return $this->interventions;
+    }
+
+    public function addIntervention(ModuleDetails $intervention): self
+    {
+        if (!$this->interventions->contains($intervention)) {
+            $this->interventions[] = $intervention;
+            $intervention->setEnseignant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIntervention(ModuleDetails $intervention): self
+    {
+        if ($this->interventions->removeElement($intervention)) {
+            // set the owning side to null (unless already changed)
+            if ($intervention->getEnseignant() === $this) {
+                $intervention->setEnseignant(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

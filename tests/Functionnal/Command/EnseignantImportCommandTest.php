@@ -16,7 +16,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  * Class EnseignantImportCommandTest
  * @package App\Tests\Command
  */
-class EnseignantImportCommandTest
+class EnseignantImportCommandTest extends TestCase
 {
     /** @var EnseignantRepository*/
     private $customerEntityManagerMock;

@@ -6,8 +6,9 @@
         <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
         <style>
             table{overflow: hidden;}
-            td, th{position:relative;}
+            td, th{position:relative;border-color:#f8f9fa!important}
             td:hover::after{content: "";position: absolute;color:#888;background-color:rgba(0,0,0,.075);left: 0;top: -5000px;height: 10000px;width: 100%;z-index: -1;}
+            .breadcrumb-item{text-decoration:underline!important;}
         </style>
         {% block stylesheets %}{% endblock %}
     </head>

@@ -44,12 +44,18 @@ class Module
     private $semaines;
 
     /**
+     * @ORM\OneToMany(targetEntity=ModuleDetails::class, mappedBy="module")
+     */
+    private $details;
+
+    /**
      * Module constructor.
      */
     public function __construct()
     {
         $this->responsables = new ArrayCollection();
         $this->semaines = new ArrayCollection();
+        $this->details = new ArrayCollection();
     }
 
     /**
@@ -140,6 +146,36 @@ class Module
             // set the owning side to null (unless already changed)
             if ($semaine->getModule() === $this) {
                 $semaine->setModule(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ModuleDetails[]
+     */
+    public function getDetails(): Collection
+    {
+        return $this->details;
+    }
+
+    public function addDetail(ModuleDetails $detail): self
+    {
+        if (!$this->details->contains($detail)) {
+            $this->details[] = $detail;
+            $detail->setModule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetail(ModuleDetails $detail): self
+    {
+        if ($this->details->removeElement($detail)) {
+            // set the owning side to null (unless already changed)
+            if ($detail->getModule() === $this) {
+                $detail->setModule(null);
             }
         }
 
